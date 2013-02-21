@@ -7,16 +7,14 @@
 //
 
 #import "DJAppDelegate.h"
+#import "HTTPServer.h"
+#import "MyHTTPConnection.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 
 @implementation DJAppDelegate
-
-- (void)dealloc
-{
-    [_persistentStoreCoordinator release];
-    [_managedObjectModel release];
-    [_managedObjectContext release];
-    [super dealloc];
-}
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -24,7 +22,38 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    // Configure our logging framework.
+	// To keep things simple and fast, we're just going to log to the Xcode console.
+	[DDLog addLogger:[DDTTYLogger sharedInstance]];
+
+	// Create server using our custom MyHTTPServer class
+	httpServer = [[HTTPServer alloc] init];
+
+	// Tell server to use our custom MyHTTPConnection class.
+	[httpServer setConnectionClass:[MyHTTPConnection class]];
+
+	// Tell the server to broadcast its presence via Bonjour.
+	// This allows browsers such as Safari to automatically discover our service.
+	[httpServer setType:@"_http._tcp."];
+
+	// Normally there's no need to run our server on any specific port.
+	// Technologies like Bonjour allow clients to dynamically discover the server's port at runtime.
+	// However, for easy testing you may want force a certain port so you can just hit the refresh button.
+	// [httpServer setPort:12345];
+
+	// Serve files from our embedded Web folder
+	NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Web"];
+	DDLogInfo(@"Setting document root: %@", webPath);
+
+	[httpServer setDocumentRoot:webPath];
+
+	// Start the server (and check for problems)
+
+	NSError *error;
+	if(![httpServer start:&error])
+	{
+		DDLogError(@"Error starting HTTP Server: %@", error);
+	}
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.demonjelly.Red" in the user's Application Support directory.
@@ -90,12 +119,12 @@
     }
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Red.storedata"];
-    NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom] autorelease];
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
     if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }
-    _persistentStoreCoordinator = [coordinator retain];
+    _persistentStoreCoordinator = coordinator;
     
     return _persistentStoreCoordinator;
 }
@@ -172,7 +201,7 @@
         NSString *info = NSLocalizedString(@"Quitting now will lose any changes you have made since the last successful save", @"Quit without saves error question info");
         NSString *quitButton = NSLocalizedString(@"Quit anyway", @"Quit anyway button title");
         NSString *cancelButton = NSLocalizedString(@"Cancel", @"Cancel button title");
-        NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+        NSAlert *alert = [[NSAlert alloc] init];
         [alert setMessageText:question];
         [alert setInformativeText:info];
         [alert addButtonWithTitle:quitButton];

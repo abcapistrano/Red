@@ -7,10 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class HTTPServer;
 
-@interface DJAppDelegate : NSObject <NSApplicationDelegate>
+@interface DJAppDelegate : NSObject <NSApplicationDelegate> {
 
-@property (assign) IBOutlet NSWindow *window;
+    HTTPServer *httpServer;
+
+}
+
+@property (weak) IBOutlet NSWindow *window;
 
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
