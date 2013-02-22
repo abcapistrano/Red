@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+  <title>Red Global</title>
+  <script type="text/javascript" charset="utf-8">
+    
+  // Set up the Listener  
+  safari.application.addEventListener("command", performCommand, false);  
+  // Function to perform when event is received  
+  function performCommand(event) {  
+      // Make sure event comes from the button 
+      if (event.command == 'addToRedQueue') {
+        var socket = new WebSocket("wss://localhost:55555/service");
+        socket.onopen = function(){  
+            alert("Socket has been opened!");  
+            socket.send(event.userInfo);
+            socket.close();
+        }                  
+      }
+      
+      
+        
+  }  
+    
+    
+  </script>
+</head>
+</html>

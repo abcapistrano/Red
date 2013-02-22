@@ -38,6 +38,7 @@
 		FD83FAD016D6535A00071F18 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */; };
 		FD83FAD316D6538200071F18 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FACF16D6528F00071F18 /* MyWebSocket.m */; };
 		FD83FAD416D6538400071F18 /* DDKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAD216D6537600071F18 /* DDKeychain.m */; };
+		FD83FAD716D6553000071F18 /* DJQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAD616D6553000071F18 /* DJQueueManager.m */; };
 		FD899E0716D3630000E0793A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD899E0616D3630000E0793A /* Cocoa.framework */; };
 		FD899E1116D3630000E0793A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD899E0F16D3630000E0793A /* InfoPlist.strings */; };
 		FD899E1316D3630000E0793A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD899E1216D3630000E0793A /* main.m */; };
@@ -108,6 +109,8 @@
 		FD83FACF16D6528F00071F18 /* MyWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWebSocket.m; sourceTree = "<group>"; };
 		FD83FAD116D6537600071F18 /* DDKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDKeychain.h; sourceTree = "<group>"; };
 		FD83FAD216D6537600071F18 /* DDKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDKeychain.m; sourceTree = "<group>"; };
+		FD83FAD516D6553000071F18 /* DJQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJQueueManager.h; sourceTree = "<group>"; };
+		FD83FAD616D6553000071F18 /* DJQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJQueueManager.m; sourceTree = "<group>"; };
 		FD899E0316D3630000E0793A /* Red.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Red.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD899E0616D3630000E0793A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FD899E0916D3630000E0793A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -293,6 +296,8 @@
 				FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */,
 				FD83FACE16D6528F00071F18 /* MyWebSocket.h */,
 				FD83FACF16D6528F00071F18 /* MyWebSocket.m */,
+				FD83FAD516D6553000071F18 /* DJQueueManager.h */,
+				FD83FAD616D6553000071F18 /* DJQueueManager.m */,
 				FD899E1816D3630000E0793A /* DJAppDelegate.h */,
 				FD899E1916D3630000E0793A /* DJAppDelegate.m */,
 				FD83FAD116D6537600071F18 /* DDKeychain.h */,
@@ -414,6 +419,7 @@
 				FD83FAC116D6511400071F18 /* ContextFilterLogFormatter.m in Sources */,
 				FD83FAC216D6511400071F18 /* DispatchQueueLogFormatter.m in Sources */,
 				FD83FAC916D6511C00071F18 /* GCDAsyncSocket.m in Sources */,
+				FD83FAD716D6553000071F18 /* DJQueueManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
