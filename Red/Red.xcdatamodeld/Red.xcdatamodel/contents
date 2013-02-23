@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="ReadingListItem" syncable="YES">
-        <attribute name="dateAdded" optional="YES" syncable="YES"/>
-        <attribute name="referrer" optional="YES" syncable="YES"/>
-        <attribute name="title" optional="YES" syncable="YES"/>
-        <attribute name="url" optional="YES" syncable="YES"/>
+    <entity name="LinkRollSite" representedClassName="LinkRollSite" syncable="YES">
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastDateAccessed" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ReadingListItem" representedClassName="ReadingListItem" syncable="YES">
+        <attribute name="dateAdded" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateRead" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isRead" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="referrer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ReadingListItem" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="LinkRollSite" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ReadingListItem" positionX="0" positionY="0" width="128" height="135"/>
     </elements>
 </model>

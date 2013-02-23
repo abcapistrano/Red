@@ -13,6 +13,8 @@
 
     HTTPServer *httpServer;
 
+    
+
 }
 
 @property (weak) IBOutlet NSWindow *window;
@@ -21,6 +23,14 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+@property (strong) NSStatusItem *statusItem;
+@property (weak) IBOutlet NSMenu *statusMenu;
+
 - (IBAction)saveAction:(id)sender;
+- (void) activateStatusMenu;
+- (IBAction) updateLinkRoll :(id)sender;
+- (IBAction) importReadingListItems :(id)sender;
+- (IBAction) readItems:(id)sender;
+- (IBAction) buildReadingList:(id)sender;
 
 @end

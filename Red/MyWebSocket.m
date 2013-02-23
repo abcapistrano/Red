@@ -14,14 +14,35 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN | HTTP_LOG_FLAG_TRACE;
 	HTTPLogTrace();
 	
 	[super didOpen];
+
+    NSUserNotification *note = [NSUserNotification new];
+    note.title = @"Connected to Red Server";
+    note.actionButtonTitle = @"Close";
+
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
 }
 
 - (void)didReceiveMessage:(NSString *)msg
 {
-	//HTTPLogTrace2(@"%@[%p]: didReceiveMessage: %@", THIS_FILE, self, msg);
-	//NSLog(@"%@", msg);
-	//[self sendMessage:[NSString stringWithFormat:@"%@", [NSDate date]]];
-    [[DJQueueManager sharedQueueManager] addReadingListItemWithJSONInfo:msg];
+
+    NSData *jsonData = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *info = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+
+    NSString *command = info[@"command"];
+    NSDictionary *payload = info[@"payload"];
+
+    if ([command isEqualToString:@"addReadingListItem"] ) {
+
+        
+        [[DJQueueManager sharedQueueManager] addReadingListItemWithInfoDictionary:payload];
+
+
+        
+    }
+    
+
+
 }
 
 - (void)didClose

@@ -4,18 +4,32 @@
   <script type="text/javascript" charset="utf-8">
     
   // Set up the Listener  
-  safari.application.addEventListener("command", performCommand, false);  
-  // Function to perform when event is received  
+  safari.application.addEventListener("command", performCommand, false); 
+  var isConnected = false;
+  
+  var socket = new WebSocket("wss://localhost:49803/service");
+  socket.onopen = function(){
+    
+    console.log('open');
+  
+    isConnected=true;
+  }
+  
+  
+    
   function performCommand(event) {  
       // Make sure event comes from the button 
-      if (event.command == 'addToRedQueue') {
-        var socket = new WebSocket("wss://localhost:55555/service");
-        socket.onopen = function(){  
-            alert("Socket has been opened!");  
-            socket.send(event.userInfo);
-            socket.close();
-        }                  
-      }
+      command = event.command;
+      if (command == 'addToRedQueue') {
+        if (isConnected) {
+          socket.send(event.userInfo);
+        
+        } else {
+          console.log('not connected');
+        
+        }
+      
+      } 
       
       
         

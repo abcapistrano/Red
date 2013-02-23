@@ -76,8 +76,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 		
 		// Use a default port of 0
 		// This will allow the kernel to automatically pick an open port for us
-		//port = 0;
-		port = 55555;
+		port = 0;
 		// Configure default values for bonjour service
 		
 		// Bonjour domain. Use the local domain by default

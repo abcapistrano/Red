@@ -11,6 +11,9 @@
 #import "MyHTTPConnection.h"
 #import "DDLog.h"
 #import "DDTTYLogger.h"
+#import "DJLinkImporter.h"
+#import "DJQueueManager.h"
+#import "NSArray+ConvenienceMethods.h"
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 
@@ -39,8 +42,12 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	// Normally there's no need to run our server on any specific port.
 	// Technologies like Bonjour allow clients to dynamically discover the server's port at runtime.
 	// However, for easy testing you may want force a certain port so you can just hit the refresh button.
-	// [httpServer setPort:12345];
 
+
+   // NSNumber *selectedPort= [[@[@52791, @52794, @52797, @52800, @52803] sample:1] lastObject];
+
+    //[httpServer setPort:[selectedPort integerValue]];
+    [httpServer setPort:49803];
 	// Serve files from our embedded Web folder
 	NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Web"];
 	DDLogInfo(@"Setting document root: %@", webPath);
@@ -54,6 +61,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	{
 		DDLogError(@"Error starting HTTP Server: %@", error);
 	}
+
+    [self activateStatusMenu];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.demonjelly.Red" in the user's Application Support directory.
@@ -120,11 +129,14 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Red.storedata"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+
+
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption: @YES};
+
+    if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
-    }
-    _persistentStoreCoordinator = coordinator;
+    }    _persistentStoreCoordinator = coordinator;
     
     return _persistentStoreCoordinator;
 }
@@ -215,6 +227,51 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     }
 
     return NSTerminateNow;
+}
+
+
+- (void) activateStatusMenu {
+
+    NSStatusBar *bar = [NSStatusBar systemStatusBar];
+
+    self.statusItem = [bar statusItemWithLength:NSVariableStatusItemLength];
+
+    self.statusItem.title = @"RED";
+    self.statusItem.highlightMode = YES;
+    self.statusItem.menu = self.statusMenu;
+
+
+
+}
+
+- (IBAction) updateLinkRoll :(id)sender {
+
+    [[DJLinkImporter sharedImporter] updateLinkRoll];
+
+
+}
+
+    
+- (IBAction) importReadingListItems :(id)sender {
+
+    [[DJLinkImporter sharedImporter] importReadingListItems];
+
+}
+
+- (IBAction) readItems:(id)sender {
+
+    [[DJQueueManager sharedQueueManager] readItems];
+
+
+    
+}
+
+- (IBAction) buildReadingList:(id)sender {
+
+    [[DJQueueManager sharedQueueManager] buildReadingList];
+
+
+    
 }
 
 @end

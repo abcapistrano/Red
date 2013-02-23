@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface DJQueueManager : NSObject
-- (void) addReadingListItemWithJSONInfo: (id) json;
+@property (readonly) NSManagedObjectContext *managedObjectContext;
+- (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict;
 + (id)sharedQueueManager;
+- (void) readItems;
+- (void) buildReadingList;
 @end

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD28733A16D891A7009E8788 /* LinkRollSite.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28733916D891A7009E8788 /* LinkRollSite.m */; };
+		FD28733D16D89406009E8788 /* LinkRollSite+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */; };
+		FD28734016D8A77C009E8788 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */; };
+		FD28734316D8AECC009E8788 /* ReadingListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28734216D8AECC009E8788 /* ReadingListItem.m */; };
+		FD28734616D8B254009E8788 /* NSArray+ConvenienceMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */; };
+		FD644ECD16D86C2D000BA156 /* DJLinkImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */; };
 		FD83FA9916D650F200071F18 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7616D650F200071F18 /* DDData.m */; };
 		FD83FA9A16D650F200071F18 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7816D650F200071F18 /* DDNumber.m */; };
 		FD83FA9B16D650F200071F18 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7A16D650F200071F18 /* DDRange.m */; };
@@ -46,9 +52,22 @@
 		FD899E1A16D3630000E0793A /* DJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD899E1916D3630000E0793A /* DJAppDelegate.m */; };
 		FD899E1D16D3630000E0793A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD899E1B16D3630000E0793A /* MainMenu.xib */; };
 		FD899E2016D3630000E0793A /* Red.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD899E1E16D3630000E0793A /* Red.xcdatamodeld */; };
+		FDCFEEF816D6FECE00EC3BC5 /* ReadingListItem+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD28733816D891A7009E8788 /* LinkRollSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkRollSite.h; sourceTree = "<group>"; };
+		FD28733916D891A7009E8788 /* LinkRollSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkRollSite.m; sourceTree = "<group>"; };
+		FD28733B16D89406009E8788 /* LinkRollSite+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LinkRollSite+Extra.h"; sourceTree = "<group>"; };
+		FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LinkRollSite+Extra.m"; sourceTree = "<group>"; };
+		FD28733E16D8A697009E8788 /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
+		FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		FD28734116D8AECC009E8788 /* ReadingListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingListItem.h; sourceTree = "<group>"; };
+		FD28734216D8AECC009E8788 /* ReadingListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingListItem.m; sourceTree = "<group>"; };
+		FD28734416D8B253009E8788 /* NSArray+ConvenienceMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ConvenienceMethods.h"; sourceTree = "<group>"; };
+		FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ConvenienceMethods.m"; sourceTree = "<group>"; };
+		FD644ECB16D86C2D000BA156 /* DJLinkImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJLinkImporter.h; sourceTree = "<group>"; };
+		FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJLinkImporter.m; sourceTree = "<group>"; };
 		FD83FA7516D650F200071F18 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
 		FD83FA7616D650F200071F18 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDData.m; sourceTree = "<group>"; };
 		FD83FA7716D650F200071F18 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNumber.h; sourceTree = "<group>"; };
@@ -125,6 +144,8 @@
 		FD899E1916D3630000E0793A /* DJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJAppDelegate.m; sourceTree = "<group>"; };
 		FD899E1C16D3630000E0793A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		FD899E1F16D3630000E0793A /* Red.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Red.xcdatamodel; sourceTree = "<group>"; };
+		FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReadingListItem+Extra.h"; sourceTree = "<group>"; };
+		FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ReadingListItem+Extra.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD28734016D8A77C009E8788 /* ScriptingBridge.framework in Frameworks */,
 				FD83FACB16D6521D00071F18 /* Security.framework in Frameworks */,
 				FD899E0716D3630000E0793A /* Cocoa.framework in Frameworks */,
 			);
@@ -252,6 +274,11 @@
 		FD899DFA16D3630000E0793A = {
 			isa = PBXGroup;
 			children = (
+				FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */,
+				FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */,
+				FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */,
+				FD28733B16D89406009E8788 /* LinkRollSite+Extra.h */,
+				FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */,
 				FD83FACA16D6521D00071F18 /* Security.framework */,
 				FD83FAC416D6511C00071F18 /* CocoaAsyncSocket */,
 				FD83FAA916D6511300071F18 /* CocoaLumberjack */,
@@ -300,10 +327,19 @@
 				FD83FAD616D6553000071F18 /* DJQueueManager.m */,
 				FD899E1816D3630000E0793A /* DJAppDelegate.h */,
 				FD899E1916D3630000E0793A /* DJAppDelegate.m */,
+				FD644ECB16D86C2D000BA156 /* DJLinkImporter.h */,
+				FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */,
 				FD83FAD116D6537600071F18 /* DDKeychain.h */,
 				FD83FAD216D6537600071F18 /* DDKeychain.m */,
 				FD899E1B16D3630000E0793A /* MainMenu.xib */,
 				FD899E1E16D3630000E0793A /* Red.xcdatamodeld */,
+				FD28734116D8AECC009E8788 /* ReadingListItem.h */,
+				FD28734216D8AECC009E8788 /* ReadingListItem.m */,
+				FD28733816D891A7009E8788 /* LinkRollSite.h */,
+				FD28733916D891A7009E8788 /* LinkRollSite.m */,
+				FD28733E16D8A697009E8788 /* Safari.h */,
+				FD28734416D8B253009E8788 /* NSArray+ConvenienceMethods.h */,
+				FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */,
 				FD899E0D16D3630000E0793A /* Supporting Files */,
 			);
 			path = Red;
@@ -331,6 +367,7 @@
 				FD899DFF16D3630000E0793A /* Sources */,
 				FD899E0016D3630000E0793A /* Frameworks */,
 				FD899E0116D3630000E0793A /* Resources */,
+				FDCFEEFD16D7118E00EC3BC5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -384,6 +421,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FDCFEEFD16D7118E00EC3BC5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD899DFF16D3630000E0793A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -420,6 +473,12 @@
 				FD83FAC216D6511400071F18 /* DispatchQueueLogFormatter.m in Sources */,
 				FD83FAC916D6511C00071F18 /* GCDAsyncSocket.m in Sources */,
 				FD83FAD716D6553000071F18 /* DJQueueManager.m in Sources */,
+				FDCFEEF816D6FECE00EC3BC5 /* ReadingListItem+Extra.m in Sources */,
+				FD644ECD16D86C2D000BA156 /* DJLinkImporter.m in Sources */,
+				FD28733A16D891A7009E8788 /* LinkRollSite.m in Sources */,
+				FD28733D16D89406009E8788 /* LinkRollSite+Extra.m in Sources */,
+				FD28734316D8AECC009E8788 /* ReadingListItem.m in Sources */,
+				FD28734616D8B254009E8788 /* NSArray+ConvenienceMethods.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
