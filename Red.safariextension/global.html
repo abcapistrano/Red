@@ -5,6 +5,8 @@
     
   // Set up the Listener  
   safari.application.addEventListener("command", performCommand, false); 
+  safari.application.addEventListener("message", respondToMessage, false);
+  
   var isConnected = false;
   
   var socket = new WebSocket("wss://localhost:49803/service");
@@ -34,7 +36,20 @@
       
         
   }  
+  //respond to middle clicks
+  function respondToMessage(messageEvent) {
+    if (messageEvent.name === 'addToRedQueue') {
     
+      if (isConnected) {
+        socket.send(messageEvent.message);
+        
+      } else {
+        console.log('not connected');
+        
+      }
+    }
+  
+  }
     
   </script>
 </head>

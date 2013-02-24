@@ -10,6 +10,7 @@
 
 @interface DJQueueManager : NSObject
 @property (readonly) NSManagedObjectContext *managedObjectContext;
+@property (strong) NSOperationQueue *queue;
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict;
 + (id)sharedQueueManager;
 - (void) readItems;

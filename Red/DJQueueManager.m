@@ -11,6 +11,7 @@
 #import "DJAppDelegate.h"
 #import <ScriptingBridge/ScriptingBridge.h>
 #import "Safari.h"
+#import "AFNetworking.h"
 @implementation DJQueueManager
 + (id)sharedQueueManager
 {
@@ -24,6 +25,15 @@
 
     return sharedInstance;
 }
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _queue = [NSOperationQueue new];
+    }
+    return self;
+}
+
 
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict {
 
@@ -38,7 +48,7 @@
 
 
     NSUserNotification *note = [NSUserNotification new];
-    note.title = @"Added item to the reading list";
+    note.title = [NSString stringWithFormat:@"Added: '%@'", item.title];
     note.informativeText = [NSString stringWithFormat:@"From %@ (via %@).", item.url.host, item.referrerURL.host];
     note.actionButtonTitle = @"Close";
 
@@ -46,6 +56,47 @@
 
 
     [[NSApp delegate] saveAction:self];
+
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:item.url];
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSString *mimeType = operation.response.MIMEType;
+
+        CFStringRef MIMEType = (__bridge CFStringRef)mimeType;
+        CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, MIMEType, NULL);
+        NSString *UTIString = (__bridge_transfer NSString *)UTI;
+
+        if ([[NSWorkspace sharedWorkspace] type:UTIString conformsToType:@"public.html"]) {
+
+            NSXMLDocument *doc = [[NSXMLDocument alloc] initWithData:responseObject options:NSXMLDocumentTidyHTML error:nil];
+            NSString *title = [[[doc nodesForXPath:@"//title/text()" error:nil] lastObject] stringValue];
+
+            if ([title length] > 0) {
+                item.title = title;
+            }
+
+        } else {
+            
+            NSArray *parts = [item.urlString componentsSeparatedByString:@"/"];
+            NSString *filename = [parts objectAtIndex:[parts count]-1];
+
+            item.title = filename;
+
+
+        }
+        
+        NSLog(@"success: %@", item.title);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"fail: %@", [error localizedDescription]);
+
+        
+    }];
+    [self.queue addOperation:op];
+
+
 }
 
 - (void) readItems {
@@ -107,15 +158,10 @@
 
     NSMutableArray *sites = [NSMutableArray array];
 
-    // General
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
+    //Important
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
     [request setPredicate:predicate];
-    
-    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
-    [request setSortDescriptors:@[sd]];
-
-    [request setFetchLimit:5];
-
+    [request setFetchLimit:0];
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
     
     //News
@@ -124,14 +170,16 @@
     [request setFetchLimit:3];
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
 
-
-
-    //Important
-    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
+    // General
+    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
     [request setPredicate:predicate];
-    [request setFetchLimit:0];
-    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
 
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+    [request setSortDescriptors:@[sd]];
+
+    [request setFetchLimit:5];
+
+    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
 //open
     [self openURLsInSafari:[sites valueForKey:@"url"]];
     //mark as read
