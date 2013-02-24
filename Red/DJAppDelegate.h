@@ -8,10 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 @class HTTPServer;
-
+@class DJReadingListController;
 @interface DJAppDelegate : NSObject <NSApplicationDelegate> {
 
     HTTPServer *httpServer;
+    DJReadingListController *readingListController;
 
     
 
@@ -26,11 +27,13 @@
 @property (strong) NSStatusItem *statusItem;
 @property (weak) IBOutlet NSMenu *statusMenu;
 
+
 - (IBAction)saveAction:(id)sender;
 - (void) activateStatusMenu;
 - (IBAction) updateLinkRoll :(id)sender;
 - (IBAction) importReadingListItems :(id)sender;
 - (IBAction) readItems:(id)sender;
 - (IBAction) buildReadingList:(id)sender;
+- (IBAction) showReadingList:(id)sender;
 
 @end

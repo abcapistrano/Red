@@ -14,6 +14,7 @@
 #import "DJLinkImporter.h"
 #import "DJQueueManager.h"
 #import "NSArray+ConvenienceMethods.h"
+#import "DJReadingListController.h"
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 
@@ -271,6 +272,16 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [[DJQueueManager sharedQueueManager] buildReadingList];
 
 
+    
+}
+
+- (IBAction) showReadingList:(id)sender {
+
+    if (!readingListController) {
+
+        readingListController = [[DJReadingListController alloc] init];
+    }
+    [readingListController showWindow:self];
     
 }
 
