@@ -112,15 +112,28 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
     NSArray *sites = [self.managedObjectContext executeFetchRequest:request error:nil];
-    [sites enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self.managedObjectContext deleteObject:obj];
-    }];
 
-    for (NSDictionary *siteInfo in self.linkRoll) {
+    // Look for what's new; compare what was added to the bookmarks
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT(urlString IN %@)", [sites valueForKey:@"urlString"]];
+    NSArray *newLinkRollSites = [self.linkRoll filteredArrayUsingPredicate:predicate];
+
+    [newLinkRollSites enumerateObjectsUsingBlock:^(NSDictionary* siteInfo, NSUInteger idx, BOOL *stop) {
         LinkRollSite *site = [LinkRollSite linkRollSiteWithDefaultContext];
         [site setValuesForKeysWithDictionary:siteInfo];
 
-    }
+        
+    }];
+    // Look for what's new; compare what was deleted from the bookmarks
+
+    predicate = [NSPredicate predicateWithFormat:@"NOT(urlString IN %@)", [self.linkRoll valueForKey:@"urlString"]];
+    NSArray *deletedLinkRollSites = [sites filteredArrayUsingPredicate:predicate];
+
+    [deletedLinkRollSites enumerateObjectsUsingBlock:^(LinkRollSite *site, NSUInteger idx, BOOL *stop) {
+
+        [self.managedObjectContext deleteObject:site];
+        NSLog(@"%@ was deleted", site.title);
+
+    }];
 
     [[NSApp delegate] saveAction:self];
     
