@@ -10,6 +10,8 @@
 #import "DJAppDelegate.h"
 #import "LinkRollSite+Extra.h"
 #import "ReadingListItem+Extra.h"
+#import <ScriptingBridge/ScriptingBridge.h>
+#import "Things.h"
 NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookmarks.plist";
 
 @implementation DJLinkImporter
@@ -153,9 +155,38 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
 
 }
 
+- (void) importToDosFromThingsApp {
+
+    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
+    ThingsArea *redQueue =[things.areas objectWithName:@"Red Queue"];
+
+    SBElementArray *todos = redQueue.toDos;
+
+
+    [todos enumerateObjectsUsingBlock:^(ThingsToDo* todo, NSUInteger idx, BOOL *stop) {
+
+        if (todo.status == ThingsStatusOpen) {
+
+            ReadingListItem *item = [ReadingListItem readingListItemWithDefaultContext];
+            item.title = todo.name;
+            item.dateAdded = todo.creationDate;
+            item.urlString = [NSString stringWithFormat:@"http://www.google.com/search?q=%@", item.title];
+            todo.status = ThingsStatusCompleted;
+            
+        }
+       
+
+    }];
+
+
+
+    
+}
+
 - (NSManagedObjectContext *) managedObjectContext {
     return [[NSApp delegate] managedObjectContext];
 }
+
 
 
 @end

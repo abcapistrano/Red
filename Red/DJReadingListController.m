@@ -18,6 +18,7 @@
     self = [super initWithWindowNibName:@"DJReadingListController" owner:self];
     if (self) {
         _dateSort = @[[NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:NO]];
+        _unreadPredicate = [NSPredicate predicateWithFormat:@"isRead == NO"];
 
     }
     return self;

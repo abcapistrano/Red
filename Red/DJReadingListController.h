@@ -10,6 +10,7 @@
 
 @interface DJReadingListController : NSWindowController <NSMenuDelegate>
 @property (readonly) NSArray *dateSort;
+@property (readonly) NSPredicate *unreadPredicate;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSArrayController *arrayController;
 @end

@@ -19,4 +19,5 @@
 - (void) reload;
 - (void) updateLinkRoll;
 - (void) importReadingListItems;
+- (void) importToDosFromThingsApp;
 @end

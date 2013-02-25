@@ -79,6 +79,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                                                           
                                                       }];
 
+
+    // import items from things
+
+    [[DJLinkImporter sharedImporter] importToDosFromThingsApp];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.demonjelly.Red" in the user's Application Support directory.
