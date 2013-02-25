@@ -135,9 +135,6 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
 
     }];
 
-    [[NSApp delegate] saveAction:self];
-    
-
 
     
 }
@@ -152,7 +149,6 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
         
     }
 
-[[NSApp delegate] saveAction:self];
 
 
 }

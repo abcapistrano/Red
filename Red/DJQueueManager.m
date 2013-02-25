@@ -44,8 +44,6 @@
     item.referrer = dict[@"referrer"];
     item.title = dict[@"title"];
 
-    //TODO: download the real title of the page
-
 
     NSUserNotification *note = [NSUserNotification new];
     note.title = [NSString stringWithFormat:@"Added: '%@'", item.title];
@@ -53,9 +51,6 @@
     note.actionButtonTitle = @"Close";
 
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
-
-
-    [[NSApp delegate] saveAction:self];
 
 
     NSURLRequest *request = [NSURLRequest requestWithURL:item.url];
@@ -114,8 +109,7 @@
 
     //mark as read the items fetched
     [results makeObjectsPerformSelector:@selector(markAsRead)];
-    [[NSApp delegate] saveAction:self];
-    
+
 }
 
 - (void) openURLsInSafari: (NSArray *) urls {
@@ -184,9 +178,6 @@
     [self openURLsInSafari:[sites valueForKey:@"url"]];
     //mark as read
     [sites makeObjectsPerformSelector:@selector(read)];
-
-    [[NSApp delegate] saveAction:self];
-
 
 
 

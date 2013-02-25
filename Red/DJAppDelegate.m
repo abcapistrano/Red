@@ -64,6 +64,21 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 	}
 
     [self activateStatusMenu];
+
+
+    self.observer = [[NSNotificationCenter defaultCenter]
+
+                     addObserverForName:NSManagedObjectContextObjectsDidChangeNotification
+                                                      object:self.managedObjectContext
+                     queue:[NSOperationQueue mainQueue]
+                     usingBlock:^(NSNotification *note) {
+
+                                                          [self saveAction:self];
+
+
+                                                          
+                                                      }];
+
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.demonjelly.Red" in the user's Application Support directory.
@@ -226,6 +241,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             return NSTerminateCancel;
         }
     }
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
 
     return NSTerminateNow;
 }

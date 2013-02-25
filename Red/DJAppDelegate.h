@@ -26,6 +26,7 @@
 
 @property (strong) NSStatusItem *statusItem;
 @property (weak) IBOutlet NSMenu *statusMenu;
+@property (strong) id observer;
 
 
 - (IBAction)saveAction:(id)sender;

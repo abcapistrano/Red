@@ -63,6 +63,7 @@
 		FD8B7DFA16DA0B48001DA5E7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8B7DF116DA0B48001DA5E7 /* UIImageView+AFNetworking.m */; };
 		FD8B7DFE16DA344E001DA5E7 /* DJReadingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */; };
 		FD8B7DFF16DA344E001DA5E7 /* DJReadingListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */; };
+		FDA8446B16DAE3E400E94A89 /* Icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = FDA8446A16DAE3E400E94A89 /* Icon.iconset */; };
 		FDCFEEF816D6FECE00EC3BC5 /* ReadingListItem+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,7 @@
 		FD8B7DFB16DA344D001DA5E7 /* DJReadingListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJReadingListController.h; sourceTree = "<group>"; };
 		FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJReadingListController.m; sourceTree = "<group>"; };
 		FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJReadingListController.xib; sourceTree = "<group>"; };
+		FDA8446A16DAE3E400E94A89 /* Icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Icon.iconset; sourceTree = "<group>"; };
 		FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReadingListItem+Extra.h"; sourceTree = "<group>"; };
 		FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ReadingListItem+Extra.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -385,6 +387,7 @@
 		FD899E0D16D3630000E0793A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FDA8446A16DAE3E400E94A89 /* Icon.iconset */,
 				FD899E0E16D3630000E0793A /* Red-Info.plist */,
 				FD899E0F16D3630000E0793A /* InfoPlist.strings */,
 				FD899E1216D3630000E0793A /* main.m */,
@@ -480,6 +483,7 @@
 				FD83FAC316D6511400071F18 /* README.txt in Resources */,
 				FD83FAC816D6511C00071F18 /* About.txt in Resources */,
 				FD8B7DFF16DA344E001DA5E7 /* DJReadingListController.xib in Resources */,
+				FDA8446B16DAE3E400E94A89 /* Icon.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
