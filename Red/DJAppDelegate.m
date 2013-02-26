@@ -83,6 +83,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     // import items from things
 
     [[DJLinkImporter sharedImporter] importToDosFromThingsApp];
+
+    // update link roll
+
+    [[DJLinkImporter sharedImporter] updateLinkRoll];
+
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.demonjelly.Red" in the user's Application Support directory.
@@ -262,13 +267,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     self.statusItem.highlightMode = YES;
     self.statusItem.menu = self.statusMenu;
 
-
-
-}
-
-- (IBAction) updateLinkRoll :(id)sender {
-
-    [[DJLinkImporter sharedImporter] updateLinkRoll];
 
 
 }

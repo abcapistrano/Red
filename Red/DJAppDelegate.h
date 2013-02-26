@@ -31,7 +31,6 @@
 
 - (IBAction)saveAction:(id)sender;
 - (void) activateStatusMenu;
-- (IBAction) updateLinkRoll :(id)sender;
 - (IBAction) importReadingListItems :(id)sender;
 - (IBAction) readItems:(id)sender;
 - (IBAction) buildReadingList:(id)sender;
