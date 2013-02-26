@@ -520,7 +520,7 @@
 						<string key="label">filterPredicate: unreadPredicate</string>
 						<reference key="source" ref="962715667"/>
 						<reference key="destination" ref="1001"/>
-						<object class="NSNibBindingConnector" key="connector" id="942469928">
+						<object class="NSNibBindingConnector" key="connector" id="353712578">
 							<reference key="NSSource" ref="962715667"/>
 							<reference key="NSDestination" ref="1001"/>
 							<string key="NSLabel">filterPredicate: unreadPredicate</string>
@@ -542,7 +542,7 @@
 							<string key="NSLabel">sortDescriptors: dateSort</string>
 							<string key="NSBinding">sortDescriptors</string>
 							<string key="NSKeyPath">dateSort</string>
-							<reference key="NSPreviousConnector" ref="942469928"/>
+							<reference key="NSPreviousConnector" ref="353712578"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
