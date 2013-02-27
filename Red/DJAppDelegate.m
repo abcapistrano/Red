@@ -88,11 +88,11 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
     [[DJLinkImporter sharedImporter] updateLinkRoll];
 
-    // prompt safari restary
+    // prompt safari restart
 
     NSRunningApplication *safari = [[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.Safari"] lastObject];
     if (safari) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"RED Alert"
+        NSAlert *alert = [NSAlert alertWithMessageText:@"RED"
                                          defaultButton:@"Make it so"
                                        alternateButton:@"Cancel" otherButton:nil
                              informativeTextWithFormat:@"Safari must be closed so that RED can work."];
@@ -100,6 +100,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         if ([alert runModal] == NSOKButton) {
 
             [safari terminate];
+
+            [[NSWorkspace sharedWorkspace] launchApplication:@"Safari"];
 
 
             
