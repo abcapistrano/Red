@@ -88,6 +88,32 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
     [[DJLinkImporter sharedImporter] updateLinkRoll];
 
+    // prompt safari restary
+
+    NSRunningApplication *safari = [[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.Safari"] lastObject];
+    if (safari) {
+        NSAlert *alert = [NSAlert alertWithMessageText:@"RED Alert"
+                                         defaultButton:@"Make it so"
+                                       alternateButton:@"Cancel" otherButton:nil
+                             informativeTextWithFormat:@"Safari must be closed so that RED can work."];
+
+        if ([alert runModal] == NSOKButton) {
+
+            [safari terminate];
+
+
+            
+        } else {
+            
+            [[NSApp delegate] terminate:self];
+            
+        }
+        
+    }
+
+  
+
+
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.demonjelly.Red" in the user's Application Support directory.

@@ -34,7 +34,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN | HTTP_LOG_FLAG_TRACE;
 
     if ([command isEqualToString:@"addReadingListItem"] ) {
 
-        
+        NSBeep();
         [[DJQueueManager sharedQueueManager] addReadingListItemWithInfoDictionary:payload];
 
 

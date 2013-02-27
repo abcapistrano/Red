@@ -45,13 +45,7 @@
     item.title = dict[@"title"];
 
 
-    NSUserNotification *note = [NSUserNotification new];
-    note.title = [NSString stringWithFormat:@"Added: '%@'", item.title];
-    note.informativeText = [NSString stringWithFormat:@"From %@ (via %@).", item.url.host, item.referrerURL.host];
-    note.actionButtonTitle = @"Close";
-
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
-
+   
 
     NSURLRequest *request = [NSURLRequest requestWithURL:item.url];
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -84,6 +78,17 @@
         }
         
         NSLog(@"success: %@", item.title);
+
+        NSUserNotification *note = [NSUserNotification new];
+        note.title = [NSString stringWithFormat:@"Added: '%@'", item.title];
+        note.informativeText = [NSString stringWithFormat:@"From %@ (via %@).", item.url.host, item.referrerURL.host];
+        note.actionButtonTitle = @"Close";
+
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
+
+
+
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"fail: %@", [error localizedDescription]);
 

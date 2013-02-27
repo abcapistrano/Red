@@ -16,37 +16,35 @@
   
     isConnected=true;
   }
-  
-  
-  
     
   function performCommand(event) {  
       // Make sure event comes from the button 
       command = event.command;
-      if (command == 'addToRedQueue') {
-        if (isConnected) {
-          
-          console.log(event.userInfo);
-          
+
+      if (!isConnected) {
+
+          console.log('not connected.');
+      }
+
+      
+
+      if (command == 'addReadingListItem') {
+          console.log('triggered');
           socket.send(event.userInfo);
-        
-        } else {
-          console.log('not connected');
-        
-        }
-      
-      } 
+      }
+
+  }
       
       
         
-  }  
+  
   //respond to middle clicks
   function respondToMessage(messageEvent) {
-    if (messageEvent.name === 'addToRedQueue') {
+    if (messageEvent.name === 'addReadingListItem') {
     
       if (isConnected) {
         socket.send(messageEvent.message);
-        
+
       } else {
         console.log('not connected');
         

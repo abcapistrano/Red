@@ -22,11 +22,11 @@
 		<array>
 			<dict>
 				<key>Command</key>
-				<string>addToRedQueue</string>
+				<string>addReadingListItem</string>
 				<key>Identifier</key>
 				<string>addToRedQueue</string>
 				<key>Title</key>
-				<string>Add to Red Queue</string>
+				<string>Queue Page/Link to Red</string>
 			</dict>
 		</array>
 		<key>Global Page</key>
