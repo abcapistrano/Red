@@ -12,6 +12,7 @@
 #import <ScriptingBridge/ScriptingBridge.h>
 #import "Safari.h"
 #import "AFNetworking.h"
+#import "NSArray+ConvenienceMethods.h"
 @implementation DJQueueManager
 + (id)sharedQueueManager
 {
@@ -107,9 +108,11 @@
 
     request.predicate = pred;
     request.sortDescriptors = @[sd];
-    request.fetchLimit = 5;
+    request.fetchLimit = 50;
 
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *subresults = [results sample:5];
+    
     [self openURLsInSafari:[results valueForKey:@"url"]];
 
     //mark as read the items fetched

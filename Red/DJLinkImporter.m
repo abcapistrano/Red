@@ -169,7 +169,7 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
 
             ReadingListItem *item = [ReadingListItem readingListItemWithDefaultContext];
             item.title = todo.name;
-            item.dateAdded = todo.creationDate; 
+            item.dateAdded = [NSDate date];
             item.urlString = [NSString stringWithFormat:@"http://www.google.com/search?q=%@", [item.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
             todo.status = ThingsStatusCompleted;
             
