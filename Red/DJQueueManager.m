@@ -116,7 +116,7 @@
     [self openURLsInSafari:[subresults valueForKey:@"url"]];
 
     //mark as read the items fetched
-    [results makeObjectsPerformSelector:@selector(markAsRead)];
+    [subresults makeObjectsPerformSelector:@selector(markAsRead)];
 
 }
 
