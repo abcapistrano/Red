@@ -8,6 +8,7 @@
 
 #import "DJReadingListController.h"
 #import "DJAppDelegate.h"
+#import "ReadingListItem.h"
 @interface DJReadingListController ()
 
 @end
@@ -18,7 +19,6 @@
     self = [super initWithWindowNibName:@"DJReadingListController" owner:self];
     if (self) {
         _dateSort = @[[NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:NO]];
-        _unreadPredicate = [NSPredicate predicateWithFormat:@"isRead == NO"];
 
     }
     return self;
@@ -37,6 +37,16 @@
     NSIndexSet *thisIndexSet = [NSIndexSet indexSetWithIndex:theClickedRow];
     [self.tableView selectRowIndexes:thisIndexSet byExtendingSelection:YES];
     
+}
+
+- (void) markAsUnread: (id) sender {
+
+    NSArray* sel = self.arrayController.selectedObjects;
+    [sel makeObjectsPerformSelector:@selector(setIsRead:) withObject:@(NO)];
+
+
+
+
 }
 
 

@@ -113,7 +113,7 @@
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
     NSArray *subresults = [results sample:5];
     
-    [self openURLsInSafari:[results valueForKey:@"url"]];
+    [self openURLsInSafari:[subresults valueForKey:@"url"]];
 
     //mark as read the items fetched
     [results makeObjectsPerformSelector:@selector(markAsRead)];
@@ -169,6 +169,10 @@
     //News
     predicate = [NSPredicate predicateWithFormat:@"group == %@", @"News"];
     [request setPredicate:predicate];
+
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+    [request setSortDescriptors:@[sd]];
+
     [request setFetchLimit:3];
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
 
@@ -176,8 +180,10 @@
     predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
     [request setPredicate:predicate];
 
+/*
+
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
-    [request setSortDescriptors:@[sd]];
+    [request setSortDescriptors:@[sd]];*/
 
     [request setFetchLimit:5];
 
