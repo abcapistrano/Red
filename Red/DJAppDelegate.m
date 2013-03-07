@@ -262,7 +262,8 @@
         readingListController = [[DJReadingListController alloc] init];
     }
     [readingListController showWindow:self];
-    
+    [NSApp activateIgnoringOtherApps:YES];
+
 }
 
 @end
