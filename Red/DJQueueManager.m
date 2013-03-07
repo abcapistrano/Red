@@ -62,20 +62,63 @@
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict {
 
     
-
     ReadingListItem *item = [ReadingListItem readingListItemWithDefaultContext];
     item.urlString = dict[@"url"];
     item.referrer = dict[@"referrer"];
     item.title = dict[@"title"];
 
+    NSBlockOperation *findDuplicate = [NSBlockOperation blockOperationWithBlock:^{
 
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ReadingListItem"];
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"urlString == %@", item.urlString];
+
+        [request setPredicate:pred];
+        NSError *error;
+        NSUInteger count = [self.managedObjectContext countForFetchRequest:request error:&error];
+
+        if (count > 1) {
+
+
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+
+                [NSApp activateIgnoringOtherApps:YES];
+                NSAlert *alert = [NSAlert alertWithMessageText:@"Duplicate Item Added."
+                                                 defaultButton:@"Delete it"
+                                               alternateButton:@"Keep it"
+                                                   otherButton:nil
+                                     informativeTextWithFormat:@"%@ (from %@).", item.title, item.url.host];
+
+                if ([alert runModal] == NSOKButton) {
+
+                    [self.managedObjectContext deleteObject:item];
+                    
+                    
+                }
+                
+            }];
+            
+        }
+        
+        
+        
+    }];
+
+    [_queue addOperation:findDuplicate];
    
-
     NSURLRequest *request = [NSURLRequest requestWithURL:item.url];
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
 
+    [op addDependency:findDuplicate];
+
+
+    
+
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 
+        if (item.managedObjectContext == nil) //item is deleted
+        {
+            return;
+        }
         NSString *mimeType = operation.response.MIMEType;
 
         CFStringRef MIMEType = (__bridge CFStringRef)mimeType;
@@ -118,6 +161,10 @@
 
         
     }];
+
+    
+
+
     [self.queue addOperation:op];
 
 

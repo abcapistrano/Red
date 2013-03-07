@@ -16,10 +16,10 @@
 
           if (socket == undefined || socket.readyState != 1) { // readState is not open
               socket = new WebSocket("ws://localhost:49803/service");
-              t = setTimeout("OpenWebSocket()", 1000);
-          } else {
-              clearTimeout(t);
           }
+
+          t = setTimeout("OpenWebSocket()", 5000);
+
 
       }
       
