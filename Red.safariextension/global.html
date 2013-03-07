@@ -4,34 +4,31 @@
   <script type="text/javascript" charset="utf-8">
     
   // Set up the Listener  
-  safari.application.addEventListener("command", performCommand, false); 
-  safari.application.addEventListener("message", respondToMessage, false);
+      safari.application.addEventListener("command", performCommand, false);
+      safari.application.addEventListener("message", respondToMessage, false);
  
-  var isConnected = false;
-  
-  var socket = new WebSocket("ws://localhost:49803/service");
-  socket.onopen = function(){
-    
-    console.log('open');
-  
-    isConnected=true;
-  }
-    
-  function performCommand(event) {  
+      var socket;
+      var t;
+
+      OpenWebSocket();
+
+      function OpenWebSocket() {
+
+          if (socket == undefined || socket.readyState != 1) { // readState is not open
+              socket = new WebSocket("ws://localhost:49803/service");
+              t = setTimeout("OpenWebSocket()", 1000);
+          } else {
+              clearTimeout(t);
+          }
+
+      }
+      
+      function performCommand(event) {  
       // Make sure event comes from the button 
       command = event.command;
-
-      if (!isConnected) {
-
-          console.log('not connected.');
-      }
-
-      
-
-      if (command == 'addReadingListItem') {
-          console.log('triggered');
-          socket.send(event.userInfo);
-      }
+          if (command == 'addReadingListItem') {
+              socket.send(event.userInfo);
+          }
 
   }
       
@@ -41,14 +38,7 @@
   //respond to middle clicks
   function respondToMessage(messageEvent) {
     if (messageEvent.name === 'addReadingListItem') {
-    
-      if (isConnected) {
         socket.send(messageEvent.message);
-
-      } else {
-        console.log('not connected');
-        
-      }
     }
   
   }
