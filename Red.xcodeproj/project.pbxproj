@@ -7,43 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD12901516E85D7F007E9AD3 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12901416E85D7F007E9AD3 /* GCDAsyncSocket.m */; };
+		FD2207B416E73A5C00595632 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD83FACA16D6521D00071F18 /* Security.framework */; };
+		FD2207B716E7463800595632 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD899E0616D3630000E0793A /* Cocoa.framework */; };
+		FD2207BA16E74A3600595632 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2207B816E74A1600595632 /* SystemConfiguration.framework */; };
+		FD2207BF16E7868A00595632 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = FD2207BC16E7868A00595632 /* index.html */; };
+		FD2207C016E7868A00595632 /* WebSocketTest.js in Sources */ = {isa = PBXBuildFile; fileRef = FD2207BD16E7868A00595632 /* WebSocketTest.js */; };
+		FD2207C116E7868A00595632 /* WebSocketTest2.js in Sources */ = {isa = PBXBuildFile; fileRef = FD2207BE16E7868A00595632 /* WebSocketTest2.js */; };
 		FD28733A16D891A7009E8788 /* LinkRollSite.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28733916D891A7009E8788 /* LinkRollSite.m */; };
 		FD28733D16D89406009E8788 /* LinkRollSite+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */; };
 		FD28734016D8A77C009E8788 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */; };
 		FD28734316D8AECC009E8788 /* ReadingListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28734216D8AECC009E8788 /* ReadingListItem.m */; };
 		FD28734616D8B254009E8788 /* NSArray+ConvenienceMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */; };
 		FD644ECD16D86C2D000BA156 /* DJLinkImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */; };
-		FD83FA9916D650F200071F18 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7616D650F200071F18 /* DDData.m */; };
-		FD83FA9A16D650F200071F18 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7816D650F200071F18 /* DDNumber.m */; };
-		FD83FA9B16D650F200071F18 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7A16D650F200071F18 /* DDRange.m */; };
-		FD83FA9C16D650F200071F18 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7C16D650F200071F18 /* HTTPAuthenticationRequest.m */; };
-		FD83FA9D16D650F200071F18 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7E16D650F200071F18 /* HTTPConnection.m */; };
-		FD83FA9E16D650F200071F18 /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8116D650F200071F18 /* HTTPMessage.m */; };
-		FD83FA9F16D650F200071F18 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8416D650F200071F18 /* HTTPServer.m */; };
-		FD83FAA016D650F200071F18 /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8716D650F200071F18 /* MultipartFormDataParser.m */; };
-		FD83FAA116D650F200071F18 /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8916D650F200071F18 /* MultipartMessageHeader.m */; };
-		FD83FAA216D650F200071F18 /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8B16D650F200071F18 /* MultipartMessageHeaderField.m */; };
-		FD83FAA316D650F200071F18 /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8E16D650F200071F18 /* HTTPAsyncFileResponse.m */; };
-		FD83FAA416D650F200071F18 /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9016D650F200071F18 /* HTTPDataResponse.m */; };
-		FD83FAA516D650F200071F18 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9216D650F200071F18 /* HTTPDynamicFileResponse.m */; };
-		FD83FAA616D650F200071F18 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9416D650F200071F18 /* HTTPFileResponse.m */; };
-		FD83FAA716D650F200071F18 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9616D650F200071F18 /* HTTPRedirectResponse.m */; };
-		FD83FAA816D650F200071F18 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9816D650F200071F18 /* WebSocket.m */; };
 		FD83FABB16D6511400071F18 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD83FAAA16D6511300071F18 /* About.txt */; };
-		FD83FABC16D6511400071F18 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAAC16D6511300071F18 /* DDAbstractDatabaseLogger.m */; };
-		FD83FABD16D6511400071F18 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAAE16D6511300071F18 /* DDASLLogger.m */; };
-		FD83FABE16D6511400071F18 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB016D6511300071F18 /* DDFileLogger.m */; };
-		FD83FABF16D6511400071F18 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB216D6511300071F18 /* DDLog.m */; };
-		FD83FAC016D6511400071F18 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB416D6511400071F18 /* DDTTYLogger.m */; };
-		FD83FAC116D6511400071F18 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB716D6511400071F18 /* ContextFilterLogFormatter.m */; };
-		FD83FAC216D6511400071F18 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB916D6511400071F18 /* DispatchQueueLogFormatter.m */; };
 		FD83FAC316D6511400071F18 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD83FABA16D6511400071F18 /* README.txt */; };
 		FD83FAC816D6511C00071F18 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD83FAC516D6511C00071F18 /* About.txt */; };
-		FD83FAC916D6511C00071F18 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAC716D6511C00071F18 /* GCDAsyncSocket.m */; };
-		FD83FACB16D6521D00071F18 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD83FACA16D6521D00071F18 /* Security.framework */; };
-		FD83FAD016D6535A00071F18 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */; };
-		FD83FAD316D6538200071F18 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FACF16D6528F00071F18 /* MyWebSocket.m */; };
-		FD83FAD416D6538400071F18 /* DDKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAD216D6537600071F18 /* DDKeychain.m */; };
 		FD83FAD716D6553000071F18 /* DJQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAD616D6553000071F18 /* DJQueueManager.m */; };
 		FD899E0716D3630000E0793A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD899E0616D3630000E0793A /* Cocoa.framework */; };
 		FD899E1116D3630000E0793A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD899E0F16D3630000E0793A /* InfoPlist.strings */; };
@@ -64,14 +43,88 @@
 		FD8B7DFE16DA344E001DA5E7 /* DJReadingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */; };
 		FD8B7DFF16DA344E001DA5E7 /* DJReadingListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */; };
 		FDA8446B16DAE3E400E94A89 /* Icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = FDA8446A16DAE3E400E94A89 /* Icon.iconset */; };
+		FDCB119316E78B34006022B9 /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BC16E7868A00595632 /* index.html */; };
+		FDCB119416E78B36006022B9 /* WebSocketTest.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BD16E7868A00595632 /* WebSocketTest.js */; };
+		FDCB119516E78B38006022B9 /* WebSocketTest2.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BE16E7868A00595632 /* WebSocketTest2.js */; };
 		FDCFEEF816D6FECE00EC3BC5 /* ReadingListItem+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */; };
+		FDE8C48D16E71F62009DB2C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDE8C48B16E71F62009DB2C2 /* InfoPlist.strings */; };
+		FDE8C49016E71F62009DB2C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8C48F16E71F62009DB2C2 /* main.m */; };
+		FDE8C49C16E724A1009DB2C2 /* com.demonjelly.RedWebServer.xpc in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDE8C48616E71F62009DB2C2 /* com.demonjelly.RedWebServer.xpc */; };
+		FDE8C49D16E724DB009DB2C2 /* ListenerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE8C45316E71453009DB2C2 /* ListenerDelegate.m */; };
+		FDE8C49F16E72505009DB2C2 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAAC16D6511300071F18 /* DDAbstractDatabaseLogger.m */; };
+		FDE8C4A016E72505009DB2C2 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAAE16D6511300071F18 /* DDASLLogger.m */; };
+		FDE8C4A116E72505009DB2C2 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB016D6511300071F18 /* DDFileLogger.m */; };
+		FDE8C4A216E72505009DB2C2 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB216D6511300071F18 /* DDLog.m */; };
+		FDE8C4A316E72505009DB2C2 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB416D6511400071F18 /* DDTTYLogger.m */; };
+		FDE8C4A416E72505009DB2C2 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB716D6511400071F18 /* ContextFilterLogFormatter.m */; };
+		FDE8C4A516E72505009DB2C2 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAB916D6511400071F18 /* DispatchQueueLogFormatter.m */; };
+		FDE8C4A616E72505009DB2C2 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7616D650F200071F18 /* DDData.m */; };
+		FDE8C4A716E72505009DB2C2 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7816D650F200071F18 /* DDNumber.m */; };
+		FDE8C4A816E72505009DB2C2 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7A16D650F200071F18 /* DDRange.m */; };
+		FDE8C4A916E72505009DB2C2 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7C16D650F200071F18 /* HTTPAuthenticationRequest.m */; };
+		FDE8C4AA16E72505009DB2C2 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA7E16D650F200071F18 /* HTTPConnection.m */; };
+		FDE8C4AB16E72505009DB2C2 /* HTTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8116D650F200071F18 /* HTTPMessage.m */; };
+		FDE8C4AC16E72505009DB2C2 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8416D650F200071F18 /* HTTPServer.m */; };
+		FDE8C4AD16E72505009DB2C2 /* MultipartFormDataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8716D650F200071F18 /* MultipartFormDataParser.m */; };
+		FDE8C4AE16E72505009DB2C2 /* MultipartMessageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8916D650F200071F18 /* MultipartMessageHeader.m */; };
+		FDE8C4AF16E72505009DB2C2 /* MultipartMessageHeaderField.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8B16D650F200071F18 /* MultipartMessageHeaderField.m */; };
+		FDE8C4B016E72505009DB2C2 /* HTTPAsyncFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA8E16D650F200071F18 /* HTTPAsyncFileResponse.m */; };
+		FDE8C4B116E72505009DB2C2 /* HTTPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9016D650F200071F18 /* HTTPDataResponse.m */; };
+		FDE8C4B216E72505009DB2C2 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9216D650F200071F18 /* HTTPDynamicFileResponse.m */; };
+		FDE8C4B316E72505009DB2C2 /* HTTPFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9416D650F200071F18 /* HTTPFileResponse.m */; };
+		FDE8C4B416E72505009DB2C2 /* HTTPRedirectResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9616D650F200071F18 /* HTTPRedirectResponse.m */; };
+		FDE8C4B516E72505009DB2C2 /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FA9816D650F200071F18 /* WebSocket.m */; };
+		FDE8C4B616E72505009DB2C2 /* DDKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FAD216D6537600071F18 /* DDKeychain.m */; };
+		FDE8C4B716E72505009DB2C2 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */; };
+		FDE8C4B816E72505009DB2C2 /* MyWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD83FACF16D6528F00071F18 /* MyWebSocket.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FDE8C49816E7234F009DB2C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD899DFB16D3630000E0793A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDE8C48516E71F62009DB2C2;
+			remoteInfo = RedWebServer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FDE8C49616E7205C009DB2C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Web;
+			dstSubfolderSpec = 7;
+			files = (
+				FDCB119416E78B36006022B9 /* WebSocketTest.js in CopyFiles */,
+				FDCB119516E78B38006022B9 /* WebSocketTest2.js in CopyFiles */,
+				FDCB119316E78B34006022B9 /* index.html in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE8C49B16E72491009DB2C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/XPCServices;
+			dstSubfolderSpec = 1;
+			files = (
+				FDE8C49C16E724A1009DB2C2 /* com.demonjelly.RedWebServer.xpc in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		FD12901316E85D7F007E9AD3 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		FD12901416E85D7F007E9AD3 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		FD2207B816E74A1600595632 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FD2207BC16E7868A00595632 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		FD2207BD16E7868A00595632 /* WebSocketTest.js */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = WebSocketTest.js; sourceTree = "<group>"; };
+		FD2207BE16E7868A00595632 /* WebSocketTest2.js */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = WebSocketTest2.js; sourceTree = "<group>"; };
 		FD28733816D891A7009E8788 /* LinkRollSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkRollSite.h; sourceTree = "<group>"; };
 		FD28733916D891A7009E8788 /* LinkRollSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkRollSite.m; sourceTree = "<group>"; };
-		FD28733B16D89406009E8788 /* LinkRollSite+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LinkRollSite+Extra.h"; sourceTree = "<group>"; };
-		FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LinkRollSite+Extra.m"; sourceTree = "<group>"; };
+		FD28733B16D89406009E8788 /* LinkRollSite+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LinkRollSite+Extra.h"; path = "../LinkRollSite+Extra.h"; sourceTree = "<group>"; };
+		FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LinkRollSite+Extra.m"; path = "../LinkRollSite+Extra.m"; sourceTree = "<group>"; };
 		FD28733E16D8A697009E8788 /* Safari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Safari.h; sourceTree = "<group>"; };
 		FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		FD28734116D8AECC009E8788 /* ReadingListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingListItem.h; sourceTree = "<group>"; };
@@ -131,15 +184,13 @@
 		FD83FAB916D6511400071F18 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		FD83FABA16D6511400071F18 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		FD83FAC516D6511C00071F18 /* About.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = About.txt; sourceTree = "<group>"; };
-		FD83FAC616D6511C00071F18 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		FD83FAC716D6511C00071F18 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		FD83FACA16D6521D00071F18 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		FD83FACC16D6528F00071F18 /* MyHTTPConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyHTTPConnection.h; sourceTree = "<group>"; };
-		FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyHTTPConnection.m; sourceTree = "<group>"; };
-		FD83FACE16D6528F00071F18 /* MyWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWebSocket.h; sourceTree = "<group>"; };
-		FD83FACF16D6528F00071F18 /* MyWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyWebSocket.m; sourceTree = "<group>"; };
-		FD83FAD116D6537600071F18 /* DDKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDKeychain.h; sourceTree = "<group>"; };
-		FD83FAD216D6537600071F18 /* DDKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDKeychain.m; sourceTree = "<group>"; };
+		FD83FACC16D6528F00071F18 /* MyHTTPConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyHTTPConnection.h; path = ../Red/MyHTTPConnection.h; sourceTree = "<group>"; };
+		FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MyHTTPConnection.m; path = ../Red/MyHTTPConnection.m; sourceTree = "<group>"; };
+		FD83FACE16D6528F00071F18 /* MyWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyWebSocket.h; path = ../Red/MyWebSocket.h; sourceTree = "<group>"; };
+		FD83FACF16D6528F00071F18 /* MyWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MyWebSocket.m; path = ../Red/MyWebSocket.m; sourceTree = "<group>"; };
+		FD83FAD116D6537600071F18 /* DDKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DDKeychain.h; path = ../Red/DDKeychain.h; sourceTree = "<group>"; };
+		FD83FAD216D6537600071F18 /* DDKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DDKeychain.m; path = ../Red/DDKeychain.m; sourceTree = "<group>"; };
 		FD83FAD516D6553000071F18 /* DJQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJQueueManager.h; sourceTree = "<group>"; };
 		FD83FAD616D6553000071F18 /* DJQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJQueueManager.m; sourceTree = "<group>"; };
 		FD899E0316D3630000E0793A /* Red.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Red.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,8 +231,17 @@
 		FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJReadingListController.xib; sourceTree = "<group>"; };
 		FDA8446A16DAE3E400E94A89 /* Icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Icon.iconset; sourceTree = "<group>"; };
 		FDA8446C16DB6E4A00E94A89 /* Things.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Things.h; path = ../Things.h; sourceTree = "<group>"; };
-		FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReadingListItem+Extra.h"; sourceTree = "<group>"; };
-		FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ReadingListItem+Extra.m"; sourceTree = "<group>"; };
+		FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ReadingListItem+Extra.h"; path = "../ReadingListItem+Extra.h"; sourceTree = "<group>"; };
+		FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadingListItem+Extra.m"; path = "../ReadingListItem+Extra.m"; sourceTree = "<group>"; };
+		FDE8C44416E71382009DB2C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FDE8C45216E71453009DB2C2 /* ListenerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerDelegate.h; sourceTree = "<group>"; };
+		FDE8C45316E71453009DB2C2 /* ListenerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerDelegate.m; sourceTree = "<group>"; };
+		FDE8C48616E71F62009DB2C2 /* com.demonjelly.RedWebServer.xpc */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com.demonjelly.RedWebServer.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDE8C48A16E71F62009DB2C2 /* RedWebServer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedWebServer-Info.plist"; sourceTree = "<group>"; };
+		FDE8C48C16E71F62009DB2C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FDE8C48E16E71F62009DB2C2 /* RedWebServer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedWebServer-Prefix.pch"; sourceTree = "<group>"; };
+		FDE8C48F16E71F62009DB2C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FDE8C49716E721FD009DB2C2 /* DJReadingListQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJReadingListQueue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,14 +250,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD28734016D8A77C009E8788 /* ScriptingBridge.framework in Frameworks */,
-				FD83FACB16D6521D00071F18 /* Security.framework in Frameworks */,
+				FD2207BA16E74A3600595632 /* SystemConfiguration.framework in Frameworks */,
 				FD899E0716D3630000E0793A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE8C48316E71F62009DB2C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD2207B416E73A5C00595632 /* Security.framework in Frameworks */,
+				FD2207B716E7463800595632 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD2207BB16E7868A00595632 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				FD2207BC16E7868A00595632 /* index.html */,
+				FD2207BD16E7868A00595632 /* WebSocketTest.js */,
+				FD2207BE16E7868A00595632 /* WebSocketTest2.js */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		FD3ACA9616E4AFD40015988A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD28734116D8AECC009E8788 /* ReadingListItem.h */,
+				FD28734216D8AECC009E8788 /* ReadingListItem.m */,
+				FD28733816D891A7009E8788 /* LinkRollSite.h */,
+				FD28733916D891A7009E8788 /* LinkRollSite.m */,
+				FD899E1E16D3630000E0793A /* Red.xcdatamodeld */,
+				FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */,
+				FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */,
+				FD28733B16D89406009E8788 /* LinkRollSite+Extra.h */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		FD83FA7316D650F200071F18 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,7 +312,7 @@
 				FD83FA9816D650F200071F18 /* WebSocket.m */,
 			);
 			name = Core;
-			path = Red/Core;
+			path = ../Red/Core;
 			sourceTree = "<group>";
 		};
 		FD83FA7416D650F200071F18 /* Categories */ = {
@@ -281,7 +375,7 @@
 				FD83FAB516D6511400071F18 /* Extensions */,
 			);
 			name = CocoaLumberjack;
-			path = Red/CocoaLumberjack;
+			path = ../Red/CocoaLumberjack;
 			sourceTree = "<group>";
 		};
 		FD83FAB516D6511400071F18 /* Extensions */ = {
@@ -299,28 +393,20 @@
 		FD83FAC416D6511C00071F18 /* CocoaAsyncSocket */ = {
 			isa = PBXGroup;
 			children = (
+				FD12901316E85D7F007E9AD3 /* GCDAsyncSocket.h */,
+				FD12901416E85D7F007E9AD3 /* GCDAsyncSocket.m */,
 				FD83FAC516D6511C00071F18 /* About.txt */,
-				FD83FAC616D6511C00071F18 /* GCDAsyncSocket.h */,
-				FD83FAC716D6511C00071F18 /* GCDAsyncSocket.m */,
 			);
 			name = CocoaAsyncSocket;
-			path = Red/CocoaAsyncSocket;
+			path = ../Red/CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
 		FD899DFA16D3630000E0793A = {
 			isa = PBXGroup;
 			children = (
-				FD8B7DDE16DA0B48001DA5E7 /* AFNetworking */,
-				FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */,
-				FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */,
-				FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */,
-				FD28733B16D89406009E8788 /* LinkRollSite+Extra.h */,
-				FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */,
-				FD83FACA16D6521D00071F18 /* Security.framework */,
-				FD83FAC416D6511C00071F18 /* CocoaAsyncSocket */,
-				FD83FAA916D6511300071F18 /* CocoaLumberjack */,
-				FD83FA7316D650F200071F18 /* Core */,
+				FD2207B816E74A1600595632 /* SystemConfiguration.framework */,
 				FD899E0C16D3630000E0793A /* Red */,
+				FDE8C48816E71F62009DB2C2 /* RedWebServer */,
 				FD899E0516D3630000E0793A /* Frameworks */,
 				FD899E0416D3630000E0793A /* Products */,
 			);
@@ -330,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				FD899E0316D3630000E0793A /* Red.app */,
+				FDE8C48616E71F62009DB2C2 /* com.demonjelly.RedWebServer.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -337,7 +424,10 @@
 		FD899E0516D3630000E0793A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */,
+				FD83FACA16D6521D00071F18 /* Security.framework */,
 				FD899E0616D3630000E0793A /* Cocoa.framework */,
+				FDE8C44416E71382009DB2C2 /* Foundation.framework */,
 				FD899E0816D3630000E0793A /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -356,28 +446,21 @@
 		FD899E0C16D3630000E0793A /* Red */ = {
 			isa = PBXGroup;
 			children = (
-				FD83FACC16D6528F00071F18 /* MyHTTPConnection.h */,
-				FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */,
-				FD83FACE16D6528F00071F18 /* MyWebSocket.h */,
-				FD83FACF16D6528F00071F18 /* MyWebSocket.m */,
+				FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */,
+				FD8B7DDE16DA0B48001DA5E7 /* AFNetworking */,
+				FD3ACA9616E4AFD40015988A /* Models */,
 				FD83FAD516D6553000071F18 /* DJQueueManager.h */,
 				FD83FAD616D6553000071F18 /* DJQueueManager.m */,
+				FDE8C49716E721FD009DB2C2 /* DJReadingListQueue.h */,
 				FD899E1816D3630000E0793A /* DJAppDelegate.h */,
 				FD899E1916D3630000E0793A /* DJAppDelegate.m */,
 				FDA8446C16DB6E4A00E94A89 /* Things.h */,
 				FD644ECB16D86C2D000BA156 /* DJLinkImporter.h */,
 				FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */,
-				FD83FAD116D6537600071F18 /* DDKeychain.h */,
-				FD83FAD216D6537600071F18 /* DDKeychain.m */,
 				FD899E1B16D3630000E0793A /* MainMenu.xib */,
 				FD8B7DFB16DA344D001DA5E7 /* DJReadingListController.h */,
 				FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */,
 				FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */,
-				FD899E1E16D3630000E0793A /* Red.xcdatamodeld */,
-				FD28734116D8AECC009E8788 /* ReadingListItem.h */,
-				FD28734216D8AECC009E8788 /* ReadingListItem.m */,
-				FD28733816D891A7009E8788 /* LinkRollSite.h */,
-				FD28733916D891A7009E8788 /* LinkRollSite.m */,
 				FD28733E16D8A697009E8788 /* Safari.h */,
 				FD28734416D8B253009E8788 /* NSArray+ConvenienceMethods.h */,
 				FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */,
@@ -422,7 +505,39 @@
 				FD8B7DF016DA0B48001DA5E7 /* UIImageView+AFNetworking.h */,
 				FD8B7DF116DA0B48001DA5E7 /* UIImageView+AFNetworking.m */,
 			);
-			path = AFNetworking;
+			name = AFNetworking;
+			path = ../AFNetworking;
+			sourceTree = "<group>";
+		};
+		FDE8C48816E71F62009DB2C2 /* RedWebServer */ = {
+			isa = PBXGroup;
+			children = (
+				FDE8C45216E71453009DB2C2 /* ListenerDelegate.h */,
+				FDE8C45316E71453009DB2C2 /* ListenerDelegate.m */,
+				FD83FAC416D6511C00071F18 /* CocoaAsyncSocket */,
+				FD83FAA916D6511300071F18 /* CocoaLumberjack */,
+				FD83FA7316D650F200071F18 /* Core */,
+				FD83FAD116D6537600071F18 /* DDKeychain.h */,
+				FD83FAD216D6537600071F18 /* DDKeychain.m */,
+				FD83FACC16D6528F00071F18 /* MyHTTPConnection.h */,
+				FD83FACD16D6528F00071F18 /* MyHTTPConnection.m */,
+				FD83FACE16D6528F00071F18 /* MyWebSocket.h */,
+				FD83FACF16D6528F00071F18 /* MyWebSocket.m */,
+				FDE8C48F16E71F62009DB2C2 /* main.m */,
+				FDE8C48916E71F62009DB2C2 /* Supporting Files */,
+			);
+			path = RedWebServer;
+			sourceTree = "<group>";
+		};
+		FDE8C48916E71F62009DB2C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD2207BB16E7868A00595632 /* Web */,
+				FDE8C48A16E71F62009DB2C2 /* RedWebServer-Info.plist */,
+				FDE8C48B16E71F62009DB2C2 /* InfoPlist.strings */,
+				FDE8C48E16E71F62009DB2C2 /* RedWebServer-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,15 +551,35 @@
 				FD899E0016D3630000E0793A /* Frameworks */,
 				FD899E0116D3630000E0793A /* Resources */,
 				FDCFEEFD16D7118E00EC3BC5 /* ShellScript */,
+				FDE8C49B16E72491009DB2C2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FDE8C49916E7234F009DB2C2 /* PBXTargetDependency */,
 			);
 			name = Red;
 			productName = Red;
 			productReference = FD899E0316D3630000E0793A /* Red.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FDE8C48516E71F62009DB2C2 /* RedWebServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDE8C49116E71F62009DB2C2 /* Build configuration list for PBXNativeTarget "RedWebServer" */;
+			buildPhases = (
+				FDE8C48216E71F62009DB2C2 /* Sources */,
+				FDE8C48316E71F62009DB2C2 /* Frameworks */,
+				FDE8C48416E71F62009DB2C2 /* Resources */,
+				FDE8C49616E7205C009DB2C2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedWebServer;
+			productName = RedWebServer;
+			productReference = FDE8C48616E71F62009DB2C2 /* com.demonjelly.RedWebServer.xpc */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -469,6 +604,7 @@
 			projectRoot = "";
 			targets = (
 				FD899E0216D3630000E0793A /* Red */,
+				FDE8C48516E71F62009DB2C2 /* RedWebServer */,
 			);
 		};
 /* End PBXProject section */
@@ -486,6 +622,15 @@
 				FD83FAC816D6511C00071F18 /* About.txt in Resources */,
 				FD8B7DFF16DA344E001DA5E7 /* DJReadingListController.xib in Resources */,
 				FDA8446B16DAE3E400E94A89 /* Icon.iconset in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDE8C48416E71F62009DB2C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE8C48D16E71F62009DB2C2 /* InfoPlist.strings in Resources */,
+				FD2207BF16E7868A00595632 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,33 +660,6 @@
 				FD899E1316D3630000E0793A /* main.m in Sources */,
 				FD899E1A16D3630000E0793A /* DJAppDelegate.m in Sources */,
 				FD899E2016D3630000E0793A /* Red.xcdatamodeld in Sources */,
-				FD83FA9916D650F200071F18 /* DDData.m in Sources */,
-				FD83FA9A16D650F200071F18 /* DDNumber.m in Sources */,
-				FD83FA9B16D650F200071F18 /* DDRange.m in Sources */,
-				FD83FA9C16D650F200071F18 /* HTTPAuthenticationRequest.m in Sources */,
-				FD83FA9D16D650F200071F18 /* HTTPConnection.m in Sources */,
-				FD83FA9E16D650F200071F18 /* HTTPMessage.m in Sources */,
-				FD83FA9F16D650F200071F18 /* HTTPServer.m in Sources */,
-				FD83FAA016D650F200071F18 /* MultipartFormDataParser.m in Sources */,
-				FD83FAA116D650F200071F18 /* MultipartMessageHeader.m in Sources */,
-				FD83FAA216D650F200071F18 /* MultipartMessageHeaderField.m in Sources */,
-				FD83FAA316D650F200071F18 /* HTTPAsyncFileResponse.m in Sources */,
-				FD83FAA416D650F200071F18 /* HTTPDataResponse.m in Sources */,
-				FD83FAA516D650F200071F18 /* HTTPDynamicFileResponse.m in Sources */,
-				FD83FAA616D650F200071F18 /* HTTPFileResponse.m in Sources */,
-				FD83FAA716D650F200071F18 /* HTTPRedirectResponse.m in Sources */,
-				FD83FAA816D650F200071F18 /* WebSocket.m in Sources */,
-				FD83FABC16D6511400071F18 /* DDAbstractDatabaseLogger.m in Sources */,
-				FD83FAD016D6535A00071F18 /* MyHTTPConnection.m in Sources */,
-				FD83FAD316D6538200071F18 /* MyWebSocket.m in Sources */,
-				FD83FABD16D6511400071F18 /* DDASLLogger.m in Sources */,
-				FD83FAD416D6538400071F18 /* DDKeychain.m in Sources */,
-				FD83FABE16D6511400071F18 /* DDFileLogger.m in Sources */,
-				FD83FABF16D6511400071F18 /* DDLog.m in Sources */,
-				FD83FAC016D6511400071F18 /* DDTTYLogger.m in Sources */,
-				FD83FAC116D6511400071F18 /* ContextFilterLogFormatter.m in Sources */,
-				FD83FAC216D6511400071F18 /* DispatchQueueLogFormatter.m in Sources */,
-				FD83FAC916D6511C00071F18 /* GCDAsyncSocket.m in Sources */,
 				FD83FAD716D6553000071F18 /* DJQueueManager.m in Sources */,
 				FDCFEEF816D6FECE00EC3BC5 /* ReadingListItem+Extra.m in Sources */,
 				FD644ECD16D86C2D000BA156 /* DJLinkImporter.m in Sources */,
@@ -562,7 +680,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FDE8C48216E71F62009DB2C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE8C49F16E72505009DB2C2 /* DDAbstractDatabaseLogger.m in Sources */,
+				FDE8C4A016E72505009DB2C2 /* DDASLLogger.m in Sources */,
+				FDE8C4A116E72505009DB2C2 /* DDFileLogger.m in Sources */,
+				FDE8C4A216E72505009DB2C2 /* DDLog.m in Sources */,
+				FDE8C4A316E72505009DB2C2 /* DDTTYLogger.m in Sources */,
+				FDE8C4A416E72505009DB2C2 /* ContextFilterLogFormatter.m in Sources */,
+				FDE8C4A516E72505009DB2C2 /* DispatchQueueLogFormatter.m in Sources */,
+				FDE8C4A616E72505009DB2C2 /* DDData.m in Sources */,
+				FDE8C4A716E72505009DB2C2 /* DDNumber.m in Sources */,
+				FDE8C4A816E72505009DB2C2 /* DDRange.m in Sources */,
+				FDE8C4A916E72505009DB2C2 /* HTTPAuthenticationRequest.m in Sources */,
+				FDE8C4AA16E72505009DB2C2 /* HTTPConnection.m in Sources */,
+				FDE8C4AB16E72505009DB2C2 /* HTTPMessage.m in Sources */,
+				FDE8C4AC16E72505009DB2C2 /* HTTPServer.m in Sources */,
+				FDE8C4AD16E72505009DB2C2 /* MultipartFormDataParser.m in Sources */,
+				FDE8C4AE16E72505009DB2C2 /* MultipartMessageHeader.m in Sources */,
+				FDE8C4AF16E72505009DB2C2 /* MultipartMessageHeaderField.m in Sources */,
+				FDE8C4B016E72505009DB2C2 /* HTTPAsyncFileResponse.m in Sources */,
+				FDE8C4B116E72505009DB2C2 /* HTTPDataResponse.m in Sources */,
+				FDE8C4B216E72505009DB2C2 /* HTTPDynamicFileResponse.m in Sources */,
+				FDE8C4B316E72505009DB2C2 /* HTTPFileResponse.m in Sources */,
+				FDE8C4B416E72505009DB2C2 /* HTTPRedirectResponse.m in Sources */,
+				FDE8C4B516E72505009DB2C2 /* WebSocket.m in Sources */,
+				FDE8C4B616E72505009DB2C2 /* DDKeychain.m in Sources */,
+				FDE8C4B716E72505009DB2C2 /* MyHTTPConnection.m in Sources */,
+				FDE8C4B816E72505009DB2C2 /* MyWebSocket.m in Sources */,
+				FDE8C49016E71F62009DB2C2 /* main.m in Sources */,
+				FDE8C49D16E724DB009DB2C2 /* ListenerDelegate.m in Sources */,
+				FD2207C016E7868A00595632 /* WebSocketTest.js in Sources */,
+				FD2207C116E7868A00595632 /* WebSocketTest2.js in Sources */,
+				FD12901516E85D7F007E9AD3 /* GCDAsyncSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDE8C49916E7234F009DB2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDE8C48516E71F62009DB2C2 /* RedWebServer */;
+			targetProxy = FDE8C49816E7234F009DB2C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FD899E0F16D3630000E0793A /* InfoPlist.strings */ = {
@@ -587,6 +751,14 @@
 				FD899E1C16D3630000E0793A /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		FDE8C48B16E71F62009DB2C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FDE8C48C16E71F62009DB2C2 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -657,6 +829,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Red/Red-Prefix.pch";
 				INFOPLIST_FILE = "Red/Red-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -670,8 +843,50 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Red/Red-Prefix.pch";
 				INFOPLIST_FILE = "Red/Red-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		FDE8C49216E71F62009DB2C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedWebServer/RedWebServer-Prefix.pch";
+				INFOPLIST_FILE = "RedWebServer/RedWebServer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "com.demonjelly.$(TARGET_NAME:rfc1034identifier)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = xpc;
+			};
+			name = Debug;
+		};
+		FDE8C49316E71F62009DB2C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedWebServer/RedWebServer-Prefix.pch";
+				INFOPLIST_FILE = "RedWebServer/RedWebServer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "com.demonjelly.$(TARGET_NAME:rfc1034identifier)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = xpc;
 			};
 			name = Release;
 		};
@@ -692,6 +907,15 @@
 			buildConfigurations = (
 				FD899E2416D3630000E0793A /* Debug */,
 				FD899E2516D3630000E0793A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDE8C49116E71F62009DB2C2 /* Build configuration list for PBXNativeTarget "RedWebServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE8C49216E71F62009DB2C2 /* Debug */,
+				FDE8C49316E71F62009DB2C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

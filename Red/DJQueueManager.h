@@ -6,13 +6,16 @@
 //  Copyright (c) 2013 Earl. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+#import "DJReadingListQueue.h"
+@interface DJQueueManager : NSObject <DJReadingListQueue, NSUserNotificationCenterDelegate> {
 
-@interface DJQueueManager : NSObject
+    NSXPCConnection *_connection;
+}
+
 @property (readonly) NSManagedObjectContext *managedObjectContext;
 @property (strong) NSOperationQueue *queue;
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict;
-+ (id)sharedQueueManager;
 - (void) readItems;
 - (void) buildReadingList;
 @end

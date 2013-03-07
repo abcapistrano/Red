@@ -9,7 +9,7 @@
  
   var isConnected = false;
   
-  var socket = new WebSocket("wss://localhost:49803/service");
+  var socket = new WebSocket("ws://localhost:49803/service");
   socket.onopen = function(){
     
     console.log('open');

@@ -9,10 +9,45 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>RedWebServer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>redwebserver.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FD3ACA7E16E4AF430015988A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FD899E0216D3630000E0793A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDE8C44216E71382009DB2C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDE8C45816E71531009DB2C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDE8C47316E71F42009DB2C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDE8C48516E71F62009DB2C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

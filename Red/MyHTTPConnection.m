@@ -96,7 +96,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_WARN; // | HTTP_LOG_FLAG_TRACE;
 		
 		return [[MyWebSocket alloc] initWithRequest:request socket:asyncSocket];		
 	}
-	
+
 	return [super webSocketForURI:path];
 }
 

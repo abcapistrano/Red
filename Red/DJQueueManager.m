@@ -14,27 +14,50 @@
 #import "AFNetworking.h"
 #import "NSArray+ConvenienceMethods.h"
 @implementation DJQueueManager
-+ (id)sharedQueueManager
-{
-    static dispatch_once_t once;
-    static id sharedInstance;
-    dispatch_once(&once, ^{
-        sharedInstance = [[self alloc] init];
-    });
 
-
-
-    return sharedInstance;
-}
 - (id)init
 {
     self = [super init];
     if (self) {
         _queue = [NSOperationQueue new];
+
+        _connection = [[NSXPCConnection alloc] initWithServiceName:@"com.demonjelly.RedWebServer"];
+        [_connection setExportedObject:self];
+        NSXPCInterface *interface = [NSXPCInterface interfaceWithProtocol: @protocol(DJReadingListQueue)];
+        [_connection setExportedInterface:interface];
+
+        [_connection setRemoteObjectInterface:[NSXPCInterface interfaceWithProtocol:@protocol(Agent)]];
+        [_connection resume];
+        
+        [[_connection remoteObjectProxy] wake];
+
+        [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+
+        __block __weak NSXPCConnection* weakConnection = _connection;
+        _connection.interruptionHandler = ^{
+
+            NSLog(@"interrupted");
+            [[weakConnection remoteObjectProxy] wake];
+
+        };
+
     }
     return self;
 }
 
+
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification {
+    return YES;
+}
+
+- (void) websocketConnected {
+
+    NSUserNotification *note = [NSUserNotification new];
+    note.title = @"Connected to Red Server";
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
+
+}
 
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict {
 

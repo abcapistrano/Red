@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD899E0216D3630000E0793A"
-               BuildableName = "Red.app"
-               BlueprintName = "Red"
+               BlueprintIdentifier = "FDE8C47316E71F42009DB2C2"
+               BuildableName = "com.demonjelly.redwebserver.xpc"
+               BlueprintName = "redwebserver"
                ReferencedContainer = "container:Red.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,34 +29,19 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD899E0216D3630000E0793A"
-            BuildableName = "Red.app"
-            BlueprintName = "Red"
-            ReferencedContainer = "container:Red.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      launchStyle = "0"
+      launchStyle = "1"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD899E0216D3630000E0793A"
-            BuildableName = "Red.app"
-            BlueprintName = "Red"
-            ReferencedContainer = "container:Red.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
+      <PathRunnable
+         FilePath = "/Users/earltagra/Library/Developer/Xcode/DerivedData/Red-fthkjmovxulyizfljkvkiketprda/Build/Products/Debug/com.demonjelly.RedWebServer.xpc/Contents/MacOS/com.demonjelly.RedWebServer">
+      </PathRunnable>
       <AdditionalOptions>
          <AdditionalOption
             key = "NSZombieEnabled"
@@ -71,15 +56,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD899E0216D3630000E0793A"
-            BuildableName = "Red.app"
-            BlueprintName = "Red"
-            ReferencedContainer = "container:Red.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

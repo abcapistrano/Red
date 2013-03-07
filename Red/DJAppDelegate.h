@@ -7,13 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class HTTPServer;
 @class DJReadingListController;
+@class DJQueueManager;
 @interface DJAppDelegate : NSObject <NSApplicationDelegate> {
 
-    HTTPServer *httpServer;
     DJReadingListController *readingListController;
-
+    DJQueueManager *queueManager;
     
 
 }

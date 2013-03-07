@@ -7,15 +7,10 @@
 //
 
 #import "DJAppDelegate.h"
-#import "HTTPServer.h"
-#import "MyHTTPConnection.h"
-#import "DDLog.h"
-#import "DDTTYLogger.h"
 #import "DJLinkImporter.h"
 #import "DJQueueManager.h"
 #import "NSArray+ConvenienceMethods.h"
 #import "DJReadingListController.h"
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 
 @implementation DJAppDelegate
@@ -26,42 +21,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Configure our logging framework.
-	// To keep things simple and fast, we're just going to log to the Xcode console.
-	[DDLog addLogger:[DDTTYLogger sharedInstance]];
 
-	// Create server using our custom MyHTTPServer class
-	httpServer = [[HTTPServer alloc] init];
-
-	// Tell server to use our custom MyHTTPConnection class.
-	[httpServer setConnectionClass:[MyHTTPConnection class]];
-
-	// Tell the server to broadcast its presence via Bonjour.
-	// This allows browsers such as Safari to automatically discover our service.
-	[httpServer setType:@"_http._tcp."];
-
-	// Normally there's no need to run our server on any specific port.
-	// Technologies like Bonjour allow clients to dynamically discover the server's port at runtime.
-	// However, for easy testing you may want force a certain port so you can just hit the refresh button.
-
-
-   // NSNumber *selectedPort= [[@[@52791, @52794, @52797, @52800, @52803] sample:1] lastObject];
-
-    //[httpServer setPort:[selectedPort integerValue]];
-    [httpServer setPort:49803];
-	// Serve files from our embedded Web folder
-	NSString *webPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Web"];
-	DDLogInfo(@"Setting document root: %@", webPath);
-
-	[httpServer setDocumentRoot:webPath];
-
-	// Start the server (and check for problems)
-
-	NSError *error;
-	if(![httpServer start:&error])
-	{
-		DDLogError(@"Error starting HTTP Server: %@", error);
-	}
 
     [self activateStatusMenu];
 
@@ -90,31 +50,30 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
     // prompt safari restart
 
-    NSRunningApplication *safari = [[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.Safari"] lastObject];
-    if (safari) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"RED"
-                                         defaultButton:@"Make it so"
-                                       alternateButton:@"Cancel" otherButton:nil
-                             informativeTextWithFormat:@"Safari must be closed so that RED can work."];
+//    NSRunningApplication *safari = [[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.Safari"] lastObject];
+//    if (safari) {
+//        NSAlert *alert = [NSAlert alertWithMessageText:@"RED"
+//                                         defaultButton:@"Make it so"
+//                                       alternateButton:@"Cancel" otherButton:nil
+//                             informativeTextWithFormat:@"Safari must be closed so that RED can work."];
+//
+//        if ([alert runModal] == NSOKButton) {
+//
+//            [safari terminate];
+//
+//            [[NSWorkspace sharedWorkspace] launchApplication:@"Safari"];
+//
+//
+//            
+//        } else {
+//            
+//            [[NSApp delegate] terminate:self];
+//            
+//        }
+//        
+//    }
 
-        if ([alert runModal] == NSOKButton) {
-
-            [safari terminate];
-
-            [[NSWorkspace sharedWorkspace] launchApplication:@"Safari"];
-
-
-            
-        } else {
-            
-            [[NSApp delegate] terminate:self];
-            
-        }
-        
-    }
-
-  
-
+    queueManager = [[DJQueueManager alloc] init];
 
 }
 
@@ -308,7 +267,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (IBAction) readItems:(id)sender {
 
-    [[DJQueueManager sharedQueueManager] readItems];
+    [queueManager readItems];
 
 
     
@@ -316,7 +275,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (IBAction) buildReadingList:(id)sender {
 
-    [[DJQueueManager sharedQueueManager] buildReadingList];
+    [queueManager buildReadingList];
 
 
     

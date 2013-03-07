@@ -2,7 +2,7 @@
 #import "WebSocket.h"
 
 
-@interface MyWebSocket : WebSocket
+@interface MyWebSocket : WebSocket 
 {
 	
 }
