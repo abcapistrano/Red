@@ -13,6 +13,8 @@
 #import "Safari.h"
 #import "AFNetworking.h"
 #import "NSArray+ConvenienceMethods.h"
+#import "NSDate+Weekend.h"
+
 @implementation DJQueueManager
 
 - (id)init
@@ -170,6 +172,7 @@
 
 }
 
+
 - (void) readItems {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
 
@@ -181,7 +184,16 @@
     request.fetchLimit = 50;
 
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
-    NSArray *subresults = [results sample:5];
+
+    NSUInteger sampleSize;
+    if ([[NSDate date] isWeekend]) {
+        sampleSize = 15;
+    } else {
+        sampleSize = 5;
+    }
+  
+
+    NSArray *subresults = [results sample:sampleSize];
     
     [self openURLsInSafari:[subresults valueForKey:@"url"]];
 
@@ -225,6 +237,23 @@
 
 - (void) buildReadingList {
 
+    if ([[NSDate date] isWeekend]) {
+
+        [NSApp activateIgnoringOtherApps:YES];
+
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Digital Vacation"
+                                         defaultButton:@"Dismiss"
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@"Building reading list is disabled during weekends."];
+
+        [alert runModal];
+
+
+
+
+        return;
+    }
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
 

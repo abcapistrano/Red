@@ -28,6 +28,14 @@
 				<key>Title</key>
 				<string>Queue Page/Link to Red</string>
 			</dict>
+			<dict>
+				<key>Command</key>
+				<string>connect</string>
+				<key>Identifier</key>
+				<string>connect</string>
+				<key>Title</key>
+				<string>Connect to Red Server</string>
+			</dict>
 		</array>
 		<key>Global Page</key>
 		<string>global.html</string>

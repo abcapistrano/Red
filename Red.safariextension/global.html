@@ -6,7 +6,9 @@
   // Set up the Listener  
       safari.application.addEventListener("command", performCommand, false);
       safari.application.addEventListener("message", respondToMessage, false);
- 
+      safari.application.addEventListener("validate", validateMenu, false);
+      
+
       var socket;
       var t;
 
@@ -16,9 +18,11 @@
 
           if (socket == undefined || socket.readyState != 1) { // readState is not open
               socket = new WebSocket("ws://localhost:49803/service");
+              t = setTimeout("OpenWebSocket()", 1000);
+          } else {
+              clearTimeout(t);
           }
 
-          t = setTimeout("OpenWebSocket()", 5000);
 
 
       }
@@ -28,9 +32,29 @@
       command = event.command;
           if (command == 'addReadingListItem') {
               socket.send(event.userInfo);
+          } else if (command == 'connect') {
+              OpenWebSocket();
           }
 
-  }
+
+      }
+
+      function validateMenu(event) {
+
+          if ( event.target.identifier == 'connect') {
+              if (socket == undefined || socket.readyState != 1) { // readState is not open
+                  event.target.disabled = false;
+              } else {
+                  event.target.disabled = true;
+              }
+
+              
+          }
+         
+
+
+          
+      }
       
       
         

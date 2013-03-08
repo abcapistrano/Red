@@ -1306,7 +1306,7 @@
 					</object>
 					<object class="NSMenuItem" id="474391915">
 						<reference key="NSMenu" ref="263214821"/>
-						<string key="NSTitle">Read 5 articles</string>
+						<string key="NSTitle">Read articles</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>

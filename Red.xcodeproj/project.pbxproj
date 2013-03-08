@@ -43,6 +43,7 @@
 		FD8B7DFE16DA344E001DA5E7 /* DJReadingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */; };
 		FD8B7DFF16DA344E001DA5E7 /* DJReadingListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */; };
 		FDA8446B16DAE3E400E94A89 /* Icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = FDA8446A16DAE3E400E94A89 /* Icon.iconset */; };
+		FDBF33B216EA0E6700B7BBD9 /* NSDate+Weekend.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBF33B116EA0E6700B7BBD9 /* NSDate+Weekend.m */; };
 		FDCB119316E78B34006022B9 /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BC16E7868A00595632 /* index.html */; };
 		FDCB119416E78B36006022B9 /* WebSocketTest.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BD16E7868A00595632 /* WebSocketTest.js */; };
 		FDCB119516E78B38006022B9 /* WebSocketTest2.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BE16E7868A00595632 /* WebSocketTest2.js */; };
@@ -231,6 +232,8 @@
 		FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJReadingListController.xib; sourceTree = "<group>"; };
 		FDA8446A16DAE3E400E94A89 /* Icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Icon.iconset; sourceTree = "<group>"; };
 		FDA8446C16DB6E4A00E94A89 /* Things.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Things.h; path = ../Things.h; sourceTree = "<group>"; };
+		FDBF33B016EA0E6700B7BBD9 /* NSDate+Weekend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Weekend.h"; sourceTree = "<group>"; };
+		FDBF33B116EA0E6700B7BBD9 /* NSDate+Weekend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Weekend.m"; sourceTree = "<group>"; };
 		FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ReadingListItem+Extra.h"; path = "../ReadingListItem+Extra.h"; sourceTree = "<group>"; };
 		FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadingListItem+Extra.m"; path = "../ReadingListItem+Extra.m"; sourceTree = "<group>"; };
 		FDE8C44416E71382009DB2C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -454,6 +457,8 @@
 				FDE8C49716E721FD009DB2C2 /* DJReadingListQueue.h */,
 				FD899E1816D3630000E0793A /* DJAppDelegate.h */,
 				FD899E1916D3630000E0793A /* DJAppDelegate.m */,
+				FDBF33B016EA0E6700B7BBD9 /* NSDate+Weekend.h */,
+				FDBF33B116EA0E6700B7BBD9 /* NSDate+Weekend.m */,
 				FDA8446C16DB6E4A00E94A89 /* Things.h */,
 				FD644ECB16D86C2D000BA156 /* DJLinkImporter.h */,
 				FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */,
@@ -677,6 +682,7 @@
 				FD8B7DF916DA0B48001DA5E7 /* AFXMLRequestOperation.m in Sources */,
 				FD8B7DFA16DA0B48001DA5E7 /* UIImageView+AFNetworking.m in Sources */,
 				FD8B7DFE16DA344E001DA5E7 /* DJReadingListController.m in Sources */,
+				FDBF33B216EA0E6700B7BBD9 /* NSDate+Weekend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
