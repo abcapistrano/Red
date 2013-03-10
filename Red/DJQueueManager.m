@@ -14,6 +14,7 @@
 #import "AFNetworking.h"
 #import "NSArray+ConvenienceMethods.h"
 #import "NSDate+Weekend.h"
+#import "Things.h"
 
 @implementation DJQueueManager
 
@@ -174,9 +175,38 @@
 
 
 - (void) readItems {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
 
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"isRead == NO"];
+    //look for the prize 'buildReadingList' before Proceeding
+
+    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
+    ThingsTag *readArticlesTag = [[things tags] objectWithName:@"readArticles"];
+    SBElementArray *todos = [readArticlesTag.toDos copy];
+
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
+
+    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
+
+    [todos filterUsingPredicate:pred];
+    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
+
+    ThingsToDo *readArticlesPrize = [[sortedResults objectAtIndex:0] get];
+
+    if (!readArticlesPrize) {
+
+
+        NSRunAlertPanel(@"Prize Requirement",
+                        @"You must have a 'readArticles' prize before you can proceed.",
+                        @"Dismiss", nil, nil);
+
+        return;
+    }
+
+    [readArticlesPrize setStatus:ThingsStatusCompleted];
+
+
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
+    
+    pred = [NSPredicate predicateWithFormat:@"isRead == NO"];
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:YES];
 
     request.predicate = pred;
@@ -228,6 +258,37 @@
 
 - (void) buildReadingList {
 
+
+    //look for the prize 'buildReadingList' before Proceeding
+
+    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
+    ThingsTag *buildReadingListTag = [[things tags] objectWithName:@"buildReadingList"];
+    SBElementArray *todos = [buildReadingListTag.toDos copy];
+
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
+
+    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
+
+    [todos filterUsingPredicate:pred];
+
+    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
+
+    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
+
+    if (!buildReadingListPrize) {
+
+
+        NSRunAlertPanel(@"Prize Requirement",
+                        @"You must have a 'buildReadingList' prize before you can proceed.",
+                        @"Dismiss", nil, nil);
+
+        return;
+    } 
+
+    [buildReadingListPrize setStatus:ThingsStatusCompleted];
+
+
+
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
     NSMutableArray *sites = [NSMutableArray array];
 
@@ -236,7 +297,7 @@
     [request setPredicate:predicate];
     [request setFetchLimit:0];
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-    
+
     //News
     predicate = [NSPredicate predicateWithFormat:@"group == %@", @"News"];
     [request setPredicate:predicate];
@@ -251,20 +312,18 @@
     predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
     [request setPredicate:predicate];
 
-/*
+    /*
 
-    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
-    [request setSortDescriptors:@[sd]];*/
+     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+     [request setSortDescriptors:@[sd]];*/
 
     [request setFetchLimit:5];
 
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-//open
+    //open
     [self openURLsInSafari:[sites valueForKey:@"url"]];
     //mark as read
     [sites makeObjectsPerformSelector:@selector(read)];
-
-
 
 
 

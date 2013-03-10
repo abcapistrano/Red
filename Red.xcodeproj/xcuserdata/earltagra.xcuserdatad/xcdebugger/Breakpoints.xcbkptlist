@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Red/DJQueueManager.m"
-         timestampString = "384441383.123802"
+         timestampString = "384612752.641459"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
          landmarkName = "-websocketConnected"
          landmarkType = "5">
       </FileBreakpoint>
