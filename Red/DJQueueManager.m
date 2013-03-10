@@ -184,16 +184,7 @@
     request.fetchLimit = 50;
 
     NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
-
-    NSUInteger sampleSize;
-    if ([[NSDate date] isWeekend]) {
-        sampleSize = 15;
-    } else {
-        sampleSize = 5;
-    }
-  
-
-    NSArray *subresults = [results sample:sampleSize];
+    NSArray *subresults = [results sample:10];
     
     [self openURLsInSafari:[subresults valueForKey:@"url"]];
 
@@ -237,26 +228,7 @@
 
 - (void) buildReadingList {
 
-    if ([[NSDate date] isWeekend]) {
-
-        [NSApp activateIgnoringOtherApps:YES];
-
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Digital Vacation"
-                                         defaultButton:@"Dismiss"
-                                       alternateButton:nil
-                                           otherButton:nil
-                             informativeTextWithFormat:@"Building reading list is disabled during weekends."];
-
-        [alert runModal];
-
-
-
-
-        return;
-    }
-
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
-
     NSMutableArray *sites = [NSMutableArray array];
 
     //Important
