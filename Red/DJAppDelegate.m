@@ -47,7 +47,6 @@
     // update link roll
 
     [[DJLinkImporter sharedImporter] updateLinkRoll];
-    queueManager = [[DJQueueManager alloc] init];
 
 }
 
@@ -241,7 +240,7 @@
 
 - (IBAction) readItems:(id)sender {
 
-    [queueManager readItems];
+    [self.queueManager readItems];
 
 
     
@@ -249,7 +248,7 @@
 
 - (IBAction) buildReadingList:(id)sender {
 
-    [queueManager buildReadingList];
+    [self.queueManager buildReadingList];
 
 
     

@@ -176,7 +176,7 @@
 
 - (void) readItems {
 
-    //look for the prize 'buildReadingList' before Proceeding
+    //look for the prize 'readArticles' before Proceeding
 
     ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
     ThingsTag *readArticlesTag = [[things tags] objectWithName:@"readArticles"];
@@ -193,7 +193,7 @@
 
     if (!readArticlesPrize) {
 
-
+        [NSApp activateIgnoringOtherApps:YES];
         NSRunAlertPanel(@"Prize Requirement",
                         @"You must have a 'readArticles' prize before you can proceed.",
                         @"Dismiss", nil, nil);
@@ -257,80 +257,129 @@
 }
 
 - (void) buildReadingList {
+    if (self.isCountingdown) return;
+
+//    //look for the prize 'buildReadingList' before Proceeding
+//
+//    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
+//    ThingsTag *buildReadingListTag = [[things tags] objectWithName:@"buildReadingList"];
+//    SBElementArray *todos = [buildReadingListTag.toDos copy];
+//
+//    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
+//
+//    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
+//
+//    [todos filterUsingPredicate:pred];
+//
+//    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
+//
+//    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
+//
+//    if (!buildReadingListPrize) {
+//
+//        [NSApp activateIgnoringOtherApps:YES];
+//        NSRunAlertPanel(@"Prize Requirement",
+//                        @"You must have a 'buildReadingList' prize before you can proceed.",
+//                        @"Dismiss", nil, nil);
+//
+//        return;
+//    } 
+//
+//    [buildReadingListPrize setStatus:ThingsStatusCompleted];
+//
+//
+//
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
+//    NSMutableArray *sites = [NSMutableArray array];
+//
+//    //Important
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
+//    [request setPredicate:predicate];
+//    [request setFetchLimit:0];
+//    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
+//
+//    //News
+//    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"News"];
+//    [request setPredicate:predicate];
+//
+//    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+//    [request setSortDescriptors:@[sd]];
+//
+//    [request setFetchLimit:3];
+//    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
+//
+//    // General
+//    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
+//    [request setPredicate:predicate];
+//
+//    /*
+//
+//     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+//     [request setSortDescriptors:@[sd]];*/
+//
+//    [request setFetchLimit:5];
+//
+//    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
+//    //open
+//    [self openURLsInSafari:[sites valueForKey:@"url"]];
+//    //mark as read
+//    [sites makeObjectsPerformSelector:@selector(read)];
 
 
-    //look for the prize 'buildReadingList' before Proceeding
 
-    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
-    ThingsTag *buildReadingListTag = [[things tags] objectWithName:@"buildReadingList"];
-    SBElementArray *todos = [buildReadingListTag.toDos copy];
-
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
-
-    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
-
-    [todos filterUsingPredicate:pred];
-
-    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
-
-    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
-
-    if (!buildReadingListPrize) {
-
-
-        NSRunAlertPanel(@"Prize Requirement",
-                        @"You must have a 'buildReadingList' prize before you can proceed.",
-                        @"Dismiss", nil, nil);
-
-        return;
-    } 
-
-    [buildReadingListPrize setStatus:ThingsStatusCompleted];
-
-
-
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
-    NSMutableArray *sites = [NSMutableArray array];
-
-    //Important
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
-    [request setPredicate:predicate];
-    [request setFetchLimit:0];
-    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-
-    //News
-    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"News"];
-    [request setPredicate:predicate];
-
-    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
-    [request setSortDescriptors:@[sd]];
-
-    [request setFetchLimit:3];
-    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-
-    // General
-    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
-    [request setPredicate:predicate];
-
-    /*
-
-     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
-     [request setSortDescriptors:@[sd]];*/
-
-    [request setFetchLimit:5];
-
-    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-    //open
-    [self openURLsInSafari:[sites valueForKey:@"url"]];
-    //mark as read
-    [sites makeObjectsPerformSelector:@selector(read)];
-
-
+    [self startCountdown];
 
 
 
 
     
+}
+
+- (void) startCountdown {
+
+    self.isCountingdown = YES;
+
+    remainingTicks = 0.5 * 60; //30 minute
+
+    _countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                       target:self
+                                                     selector:@selector(tick)
+                                                     userInfo:nil
+                                                      repeats:YES];
+
+    [[NSRunLoop currentRunLoop]  addTimer:_countdownTimer forMode:NSEventTrackingRunLoopMode];
+
+
+    
+}
+
+
+- (void) tick {
+
+    remainingTicks--;
+
+    DJAppDelegate *appDelegate = (DJAppDelegate *)[NSApp delegate];
+    NSStatusItem *item = appDelegate.statusItem;
+
+    if (remainingTicks > 0) {
+
+        NSUInteger seconds = remainingTicks % 60;
+        NSUInteger minutes = (remainingTicks - seconds) / 60;
+
+        item.title = [NSString stringWithFormat:@"%.2lu:%.2lu", minutes, seconds];
+        
+
+        
+
+    } else {
+
+        [_countdownTimer invalidate];
+        _countdownTimer = nil;
+        NSRunAlertPanel(@"Build Reading List", @"Please stop.", @"Done", nil, nil);
+        item.title = @"RED";
+        self.isCountingdown = NO;
+        
+    }
 }
 
 

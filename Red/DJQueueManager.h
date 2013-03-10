@@ -11,10 +11,14 @@
 @interface DJQueueManager : NSObject <DJReadingListQueue, NSUserNotificationCenterDelegate> {
 
     NSXPCConnection *_connection;
+
+    NSTimer *_countdownTimer;
+    NSUInteger remainingTicks;
 }
 
 @property (readonly) NSManagedObjectContext *managedObjectContext;
 @property (strong) NSOperationQueue *queue;
+@property (assign) BOOL isCountingdown;
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict;
 - (void) readItems;
 - (void) buildReadingList;

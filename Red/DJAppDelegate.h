@@ -12,7 +12,6 @@
 @interface DJAppDelegate : NSObject <NSApplicationDelegate> {
 
     DJReadingListController *readingListController;
-    DJQueueManager *queueManager;
     
 
 }
@@ -26,6 +25,7 @@
 @property (strong) NSStatusItem *statusItem;
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (strong) id observer;
+@property (weak) IBOutlet DJQueueManager *queueManager;
 
 
 - (IBAction)saveAction:(id)sender;
