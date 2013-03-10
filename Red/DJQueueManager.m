@@ -339,7 +339,7 @@
 
     self.isCountingdown = YES;
 
-    remainingTicks = 0.5 * 60; //30 minute
+    remainingTicks = 30 * 60; //30 minute
 
     _countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                        target:self
