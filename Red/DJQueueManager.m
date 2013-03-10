@@ -259,71 +259,71 @@
 - (void) buildReadingList {
     if (self.isCountingdown) return;
 
-//    //look for the prize 'buildReadingList' before Proceeding
-//
-//    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
-//    ThingsTag *buildReadingListTag = [[things tags] objectWithName:@"buildReadingList"];
-//    SBElementArray *todos = [buildReadingListTag.toDos copy];
-//
-//    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
-//
-//    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
-//
-//    [todos filterUsingPredicate:pred];
-//
-//    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
-//
-//    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
-//
-//    if (!buildReadingListPrize) {
-//
-//        [NSApp activateIgnoringOtherApps:YES];
-//        NSRunAlertPanel(@"Prize Requirement",
-//                        @"You must have a 'buildReadingList' prize before you can proceed.",
-//                        @"Dismiss", nil, nil);
-//
-//        return;
-//    } 
-//
-//    [buildReadingListPrize setStatus:ThingsStatusCompleted];
-//
-//
-//
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
-//    NSMutableArray *sites = [NSMutableArray array];
-//
-//    //Important
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
-//    [request setPredicate:predicate];
-//    [request setFetchLimit:0];
-//    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-//
-//    //News
-//    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"News"];
-//    [request setPredicate:predicate];
-//
-//    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
-//    [request setSortDescriptors:@[sd]];
-//
-//    [request setFetchLimit:3];
-//    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-//
-//    // General
-//    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
-//    [request setPredicate:predicate];
-//
-//    /*
-//
-//     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
-//     [request setSortDescriptors:@[sd]];*/
-//
-//    [request setFetchLimit:5];
-//
-//    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
-//    //open
-//    [self openURLsInSafari:[sites valueForKey:@"url"]];
-//    //mark as read
-//    [sites makeObjectsPerformSelector:@selector(read)];
+    //look for the prize 'buildReadingList' before Proceeding
+
+    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
+    ThingsTag *buildReadingListTag = [[things tags] objectWithName:@"buildReadingList"];
+    SBElementArray *todos = [buildReadingListTag.toDos copy];
+
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
+
+    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
+
+    [todos filterUsingPredicate:pred];
+
+    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
+
+    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
+
+    if (!buildReadingListPrize) {
+
+        [NSApp activateIgnoringOtherApps:YES];
+        NSRunAlertPanel(@"Prize Requirement",
+                        @"You must have a 'buildReadingList' prize before you can proceed.",
+                        @"Dismiss", nil, nil);
+
+        return;
+    } 
+
+    [buildReadingListPrize setStatus:ThingsStatusCompleted];
+
+
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
+    NSMutableArray *sites = [NSMutableArray array];
+
+    //Important
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
+    [request setPredicate:predicate];
+    [request setFetchLimit:0];
+    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
+
+    //News
+    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"News"];
+    [request setPredicate:predicate];
+
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+    [request setSortDescriptors:@[sd]];
+
+    [request setFetchLimit:3];
+    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
+
+    // General
+    predicate = [NSPredicate predicateWithFormat:@"group == %@", @"General"];
+    [request setPredicate:predicate];
+
+    /*
+
+     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+     [request setSortDescriptors:@[sd]];*/
+
+    [request setFetchLimit:5];
+
+    [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
+    //open
+    [self openURLsInSafari:[sites valueForKey:@"url"]];
+    //mark as read
+    [sites makeObjectsPerformSelector:@selector(read)];
 
 
 
