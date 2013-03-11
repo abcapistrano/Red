@@ -11,14 +11,16 @@
 
       var socket;
       var t;
+      var connectCount;
 
       OpenWebSocket();
 
       function OpenWebSocket() {
 
-          if (socket == undefined || socket.readyState != 1) { // readState is not open
+          if ((socket == undefined || socket.readyState != 1) && connectCount < 10) { // readState is not open
               socket = new WebSocket("ws://localhost:49803/service");
               t = setTimeout("OpenWebSocket()", 1000);
+              connectCount++;
           } else {
               clearTimeout(t);
           }
@@ -44,6 +46,7 @@
           if ( event.target.identifier == 'connect') {
               if (socket == undefined || socket.readyState != 1) { // readState is not open
                   event.target.disabled = false;
+                  connectCount = 0;
               } else {
                   event.target.disabled = true;
               }

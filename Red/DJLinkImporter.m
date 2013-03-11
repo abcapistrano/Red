@@ -162,6 +162,9 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
 
     SBElementArray *todos = redQueue.toDos;
 
+    
+    NSDataDetector *linkDetector = [NSDataDetector dataDetectorWithTypes:(NSTextCheckingTypes)NSTextCheckingTypeLink error:nil];
+
 
     [todos enumerateObjectsUsingBlock:^(ThingsToDo* todo, NSUInteger idx, BOOL *stop) {
 
@@ -170,7 +173,27 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
             ReadingListItem *item = [ReadingListItem readingListItemWithDefaultContext];
             item.title = todo.name;
             item.dateAdded = [NSDate date];
-            item.urlString = [NSString stringWithFormat:@"http://www.google.com/search?q=%@", [item.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+
+            //detect URLs in the note
+
+            NSString *note = todo.notes;
+            NSArray *urlMatches = [linkDetector matchesInString:todo.notes options:0 range:NSMakeRange(0, [note length])];
+            if ([urlMatches count] > 0) {
+
+                NSString * result = [[[urlMatches objectAtIndex:0] URL] absoluteString];
+                result = [result stringByReplacingOccurrencesOfString:@"%5D" withString:@""]; //replace "%5d" aka "]" with nothing
+                item.urlString = result;
+            } else {
+
+                // resort to google if there is no url in the note
+                
+                item.urlString = [NSString stringWithFormat:@"http://www.google.com/search?q=%@", [item.title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                
+
+            }
+
+         
             todo.status = ThingsStatusCompleted;
             
         }
