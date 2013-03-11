@@ -1315,6 +1315,14 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 					</object>
+					<object class="NSMenuItem" id="989336666">
+						<reference key="NSMenu" ref="263214821"/>
+						<string key="NSTitle">View online porn</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
 					<object class="NSMenuItem" id="338501076">
 						<reference key="NSMenu" ref="263214821"/>
 						<bool key="NSIsDisabled">YES</bool>
@@ -2103,6 +2111,14 @@
 					<int key="connectionID">639</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">viewOnlinePorn:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="989336666"/>
+					</object>
+					<int key="connectionID">649</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">enabled: isCountingdown</string>
 						<reference key="source" ref="729059839"/>
@@ -2141,6 +2157,26 @@
 						</object>
 					</object>
 					<int key="connectionID">645</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: isCountingdown</string>
+						<reference key="source" ref="989336666"/>
+						<reference key="destination" ref="160730327"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="989336666"/>
+							<reference key="NSDestination" ref="160730327"/>
+							<string key="NSLabel">enabled: isCountingdown</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">isCountingdown</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSNegateBoolean</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">648</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3140,6 +3176,7 @@
 							<reference ref="338501076"/>
 							<reference ref="474391915"/>
 							<reference ref="903270765"/>
+							<reference ref="989336666"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -3187,6 +3224,11 @@
 						<int key="objectID">638</int>
 						<reference key="object" ref="160730327"/>
 						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">646</int>
+						<reference key="object" ref="989336666"/>
+						<reference key="parent" ref="263214821"/>
 					</object>
 				</array>
 			</object>
@@ -3340,6 +3382,7 @@
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="638.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="646.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3356,7 +3399,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">645</int>
+			<int key="maxID">649</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3369,6 +3412,7 @@
 						<string key="readItems:">id</string>
 						<string key="saveAction:">id</string>
 						<string key="showReadingList:">id</string>
+						<string key="viewOnlinePorn:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="buildReadingList:">
@@ -3389,6 +3433,10 @@
 						</object>
 						<object class="IBActionInfo" key="showReadingList:">
 							<string key="name">showReadingList:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="viewOnlinePorn:">
+							<string key="name">viewOnlinePorn:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

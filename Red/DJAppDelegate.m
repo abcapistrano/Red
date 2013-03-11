@@ -265,4 +265,9 @@
 
 }
 
+- (IBAction) viewOnlinePorn :(id)sender {
+
+    [self.queueManager viewOnlinePorn];
+}
+
 @end

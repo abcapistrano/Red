@@ -189,9 +189,8 @@
     [todos filterUsingPredicate:pred];
     NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
 
-    ThingsToDo *readArticlesPrize = [[sortedResults objectAtIndex:0] get];
 
-    if (!readArticlesPrize) {
+    if ([sortedResults count] == 0) {
 
         [NSApp activateIgnoringOtherApps:YES];
         NSRunAlertPanel(@"Prize Requirement",
@@ -201,6 +200,7 @@
         return;
     }
 
+    ThingsToDo *readArticlesPrize = [[sortedResults objectAtIndex:0] get];
     [readArticlesPrize setStatus:ThingsStatusCompleted];
 
 
@@ -273,9 +273,7 @@
 
     NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
 
-    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
-
-    if (!buildReadingListPrize) {
+    if ([sortedResults count] == 0) {
 
         [NSApp activateIgnoringOtherApps:YES];
         NSRunAlertPanel(@"Prize Requirement",
@@ -284,6 +282,7 @@
 
         return;
     } 
+    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
 
     [buildReadingListPrize setStatus:ThingsStatusCompleted];
 
@@ -375,12 +374,68 @@
 
         [_countdownTimer invalidate];
         _countdownTimer = nil;
-        NSRunAlertPanel(@"Build Reading List", @"Please stop.", @"Done", nil, nil);
+        NSRunAlertPanel(@"RED", @"Please stop.", @"Done", nil, nil);
         item.title = @"RED";
         self.isCountingdown = NO;
         
     }
 }
 
+- (void) viewOnlinePorn {
 
+    if (self.isCountingdown) return;
+
+    //look for the prize 'buildReadingList' before Proceeding
+
+    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
+    ThingsTag *viewOnlinePorn = [[things tags] objectWithName:@"viewOnlinePorn"];
+    SBElementArray *todos = [viewOnlinePorn.toDos copy];
+
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
+
+    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
+
+    [todos filterUsingPredicate:pred];
+
+    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
+
+
+    if ([sortedResults count] == 0) {
+
+        [NSApp activateIgnoringOtherApps:YES];
+        NSRunAlertPanel(@"Prize Requirement",
+                        @"You must have a 'viewOnlinePorn' prize before you can proceed.",
+                        @"Dismiss", nil, nil);
+
+        return;
+    }
+
+    ThingsToDo *viewOnlinePornPrize = [[sortedResults objectAtIndex:0] get];
+    [viewOnlinePornPrize setStatus:ThingsStatusCompleted];
+
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
+
+    //Porn
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Porn"];
+    [request setPredicate:predicate];
+    [request setFetchLimit:5];
+
+
+    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
+    [request setSortDescriptors:@[sd]];
+
+
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
+    
+
+    [self openURLsInSafari:[results valueForKey:@"url"]];
+    //mark as read
+    [results makeObjectsPerformSelector:@selector(read)];
+
+    [self startCountdown];
+
+    // countdown
+    // prizes
+}
 @end

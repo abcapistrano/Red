@@ -22,4 +22,5 @@
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict;
 - (void) readItems;
 - (void) buildReadingList;
+- (void) viewOnlinePorn;
 @end
