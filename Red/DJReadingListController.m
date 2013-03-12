@@ -43,6 +43,7 @@
 
     NSArray* sel = self.arrayController.selectedObjects;
     [sel makeObjectsPerformSelector:@selector(setIsRead:) withObject:@(NO)];
+    [sel makeObjectsPerformSelector:@selector(setDateRead:) withObject:nil];
 
 
 
