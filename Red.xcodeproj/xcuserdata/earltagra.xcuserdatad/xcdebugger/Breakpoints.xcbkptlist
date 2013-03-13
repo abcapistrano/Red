@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Red/DJQueueManager.m"
-         timestampString = "384841017.459756"
+         timestampString = "384863434.900071"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
          landmarkName = "-websocketConnected"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,12 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Red/DJQueueManager.m"
-         timestampString = "384844561.602091"
+         timestampString = "384867323.307188"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "500"
-         endingLineNumber = "500"
-         landmarkName = "-viewOnlinePorn"
+         startingLineNumber = "388"
+         endingLineNumber = "388"
+         landmarkName = "-buildReadingList"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Red/DJQueueManager.m"
-         timestampString = "384842309.128106"
+         timestampString = "384867323.307188"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "247"
-         endingLineNumber = "247"
+         startingLineNumber = "250"
+         endingLineNumber = "250"
          landmarkName = "-readItems"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,24 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Red/DJQueueManager.m"
-         timestampString = "384841013.318516"
+         timestampString = "384867323.307188"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "73"
-         endingLineNumber = "73"
-         landmarkName = "@implementation DJQueueManager"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Red/DJQueueManager.m"
-         timestampString = "384844561.602091"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "279"
-         endingLineNumber = "279"
+         startingLineNumber = "251"
+         endingLineNumber = "251"
          landmarkName = "-readItems"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,12 +60,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Red/DJQueueManager.m"
-         timestampString = "384844561.602091"
+         timestampString = "384867323.307188"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "298"
-         endingLineNumber = "298"
-         landmarkName = "-openURLsInSafari:"
+         startingLineNumber = "254"
+         endingLineNumber = "254"
+         landmarkName = "-readItems"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -86,12 +73,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Red/DJQueueManager.m"
-         timestampString = "384844561.602091"
+         timestampString = "384867323.307188"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "304"
-         endingLineNumber = "304"
-         landmarkName = "-openURLsInSafari:"
+         startingLineNumber = "255"
+         endingLineNumber = "255"
+         landmarkName = "-readItems"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

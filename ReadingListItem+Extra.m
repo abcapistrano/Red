@@ -18,6 +18,8 @@
     
 }
 - (NSURL *) url {
+
+    
     return [NSURL URLWithString:self.urlString];
 }
 

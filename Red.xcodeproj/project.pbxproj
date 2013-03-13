@@ -44,6 +44,7 @@
 		FD8B7DFF16DA344E001DA5E7 /* DJReadingListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */; };
 		FDA8446B16DAE3E400E94A89 /* Icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = FDA8446A16DAE3E400E94A89 /* Icon.iconset */; };
 		FDC4653516F033C50028F002 /* NSDate+MoreDates.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC4653416F033C50028F002 /* NSDate+MoreDates.m */; };
+		FDC4653816F08ACC0028F002 /* MTRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC4653716F08ACC0028F002 /* MTRandom.m */; };
 		FDCB119316E78B34006022B9 /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BC16E7868A00595632 /* index.html */; };
 		FDCB119416E78B36006022B9 /* WebSocketTest.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BD16E7868A00595632 /* WebSocketTest.js */; };
 		FDCB119516E78B38006022B9 /* WebSocketTest2.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BE16E7868A00595632 /* WebSocketTest2.js */; };
@@ -234,6 +235,8 @@
 		FDA8446C16DB6E4A00E94A89 /* Things.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Things.h; path = ../Things.h; sourceTree = "<group>"; };
 		FDC4653316F033C50028F002 /* NSDate+MoreDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MoreDates.h"; sourceTree = "<group>"; };
 		FDC4653416F033C50028F002 /* NSDate+MoreDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MoreDates.m"; sourceTree = "<group>"; };
+		FDC4653616F08ACC0028F002 /* MTRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRandom.h; sourceTree = "<group>"; };
+		FDC4653716F08ACC0028F002 /* MTRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRandom.m; sourceTree = "<group>"; };
 		FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ReadingListItem+Extra.h"; path = "../ReadingListItem+Extra.h"; sourceTree = "<group>"; };
 		FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadingListItem+Extra.m"; path = "../ReadingListItem+Extra.m"; sourceTree = "<group>"; };
 		FDE8C44416E71382009DB2C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -449,6 +452,8 @@
 		FD899E0C16D3630000E0793A /* Red */ = {
 			isa = PBXGroup;
 			children = (
+				FDC4653616F08ACC0028F002 /* MTRandom.h */,
+				FDC4653716F08ACC0028F002 /* MTRandom.m */,
 				FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */,
 				FD8B7DDE16DA0B48001DA5E7 /* AFNetworking */,
 				FD3ACA9616E4AFD40015988A /* Models */,
@@ -683,6 +688,7 @@
 				FD8B7DFA16DA0B48001DA5E7 /* UIImageView+AFNetworking.m in Sources */,
 				FD8B7DFE16DA344E001DA5E7 /* DJReadingListController.m in Sources */,
 				FDC4653516F033C50028F002 /* NSDate+MoreDates.m in Sources */,
+				FDC4653816F08ACC0028F002 /* MTRandom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

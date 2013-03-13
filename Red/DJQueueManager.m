@@ -15,6 +15,7 @@
 #import "NSArray+ConvenienceMethods.h"
 #import "Things.h"
 #import "NSDate+MoreDates.h"
+#import "MTRandom.h"
 @implementation DJQueueManager
 
 - (id)init
@@ -69,8 +70,10 @@
 
     [[self.managedObjectContext executeFetchRequest:request error:nil] enumerateObjectsUsingBlock:^(ReadingListItem* item, NSUInteger idx, BOOL *stop) {
 
+        if ([item url] == nil) {
+            NSLog(@"%@", item.title);
+        }
 
-        item.dateAdded = [item.dateAdded dateJustBeforeMidnight];
         
     }];
 
@@ -195,37 +198,22 @@
 
     //look for the prize 'readArticles' before Proceeding
 
-    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
-    ThingsTag *readArticlesTag = [[things tags] objectWithName:@"readArticles"];
-    SBElementArray *todos = [readArticlesTag.toDos copy];
-
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
-
-    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
-
-    [todos filterUsingPredicate:pred];
-    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
-
-
-    if ([sortedResults count] == 0) {
-
-        [NSApp activateIgnoringOtherApps:YES];
-        NSRunAlertPanel(@"Prize Requirement",
-                        @"You must have a 'readArticles' prize before you can proceed.",
-                        @"Dismiss", nil, nil);
-
-        return;
-    }
-
-    ThingsToDo *readArticlesPrize = [[sortedResults objectAtIndex:0] get];
-    [readArticlesPrize setStatus:ThingsStatusCompleted];
-
+#ifdef RELEASE
+    if (![self consumePrizeWithTag:@"readArticles"]) return;
+#endif
+    
 /*
  Objective: Get articles from 10 different dates to add variety to your reading experience
  
  */
 
     // fetch dates
+
+
+
+
+
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReadingListItem" inManagedObjectContext:self.managedObjectContext];
 
@@ -240,21 +228,60 @@
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:YES];
     request.sortDescriptors = @[sd];
 
+    //request.fetchLimit = countOfLinksToShow;
+
+    NSArray *dates = [[self.managedObjectContext executeFetchRequest:request error:nil] valueForKey:@"dateAdded"];
+
     NSUInteger countOfLinksToShow = 10;
-    request.fetchLimit = countOfLinksToShow;
+    if ([dates count] < countOfLinksToShow) {
 
-    NSArray *dates = [self.managedObjectContext executeFetchRequest:request error:nil];
+        NSRunAlertPanel(@"Highly Unlikely Error", @"It seems that not enough dates are available. Fix that.", @"Dismiss", nil, nil);
+        return;
+    }
 
-    if ([dates count] == countOfLinksToShow) {
 
+    NSRange tophalf, bottomhalf;
+    tophalf.location = 0;
+    tophalf.length = [dates count]/2;
+
+    bottomhalf.location = tophalf.length;
+    bottomhalf.length = [dates count] - tophalf.length;
+    
+    NSMutableArray *earliestDates = [[dates subarrayWithRange:tophalf] mutableCopy];
+    NSMutableArray *latestDates = [[dates subarrayWithRange:bottomhalf] mutableCopy];
+    
+
+    NSMutableArray *datesToShow = [NSMutableArray arrayWithCapacity:countOfLinksToShow];
+
+    
+    MTRandom *random = [MTRandom new];
+
+    do {
+
+        NSUInteger randomNumber = [random randomUInt32From:1 to:10];
+
+        if (randomNumber < 9) { //if the number falls between 1-8 we get from the earliestDates to favor such dates
+
+            [datesToShow addObject:[[earliestDates sample:1] lastObject]];
+
+        } else {
+
+            [datesToShow addObject:[[latestDates sample:1] lastObject]];
+
+
+        }
+
+
+    } while ([datesToShow count] < countOfLinksToShow);
+   
         NSMutableArray *itemsToOpen = [NSMutableArray array];
 
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded == $date"];
         NSFetchRequest *request2 = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
 
-        [dates enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(NSDictionary* result, NSUInteger idx, BOOL *stop) {
+        [datesToShow enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(NSDate* date, NSUInteger idx, BOOL *stop) {
 
-            NSPredicate *customDatePredicate = [datePredicate predicateWithSubstitutionVariables:@{@"date":result[@"dateAdded"]}];
+            NSPredicate *customDatePredicate = [datePredicate predicateWithSubstitutionVariables:@{@"date":date}];
             request2.predicate = customDatePredicate;
             request2.fetchLimit = 10;
 
@@ -268,19 +295,17 @@
 
 
 
+
         }];
 
         [self openURLsInSafari:[itemsToOpen valueForKey:@"url"]];
+
+#ifdef RELEASE
         [itemsToOpen makeObjectsPerformSelector:@selector(markAsRead)];
 
+#endif
 
 
-    } else {
-
-
-        NSRunAlertPanel(@"Highly Unlikely Error", @"It seems that not enough dates are available. Fix that.", @"Dismiss", nil, nil);
-
-    }
 
 
 }
@@ -301,7 +326,7 @@
         SafariTab *tab = [tabClass new];
         [window.tabs addObject:tab];
         tab.URL = url.absoluteString;
-        
+
         
         
     }];
@@ -318,14 +343,12 @@
     return [[NSApp delegate] managedObjectContext];
 }
 
-- (void) buildReadingList {
-    if (self.isCountingdown) return;
+- (BOOL) consumePrizeWithTag:(NSString *) tag {
 
-    //look for the prize 'buildReadingList' before Proceeding
 
     ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
-    ThingsTag *buildReadingListTag = [[things tags] objectWithName:@"buildReadingList"];
-    SBElementArray *todos = [buildReadingListTag.toDos copy];
+    ThingsTag *prizeTag = [[things tags] objectWithName:tag];
+    SBElementArray *todos = [prizeTag.toDos copy];
 
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
 
@@ -338,16 +361,32 @@
     if ([sortedResults count] == 0) {
 
         [NSApp activateIgnoringOtherApps:YES];
+
         NSRunAlertPanel(@"Prize Requirement",
-                        @"You must have a 'buildReadingList' prize before you can proceed.",
-                        @"Dismiss", nil, nil);
+                        [NSString stringWithFormat:@"You must have a '%@' prize before you can proceed.", tag],
+                        @"Dismiss",
+                        nil,
+                        nil);
 
-        return;
-    } 
-    ThingsToDo *buildReadingListPrize = [[sortedResults objectAtIndex:0] get];
+        return NO;
+    } else {
 
-    [buildReadingListPrize setStatus:ThingsStatusCompleted];
+        ThingsToDo *prize = [[sortedResults objectAtIndex:0] get];
+        [prize setStatus:ThingsStatusCompleted];
+        return YES;
+        
+    }
 
+
+    
+}
+
+- (void) buildReadingList {
+    if (self.isCountingdown) return;
+#ifdef RELEASE
+
+    if (![self consumePrizeWithTag:@"buildReadingList"]) return;
+#endif
 
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
@@ -384,8 +423,10 @@
     //open
     [self openURLsInSafari:[sites valueForKey:@"url"]];
     //mark as read
-    [sites makeObjectsPerformSelector:@selector(read)];
 
+#ifdef  RELEASE
+    [sites makeObjectsPerformSelector:@selector(read)];
+#endif
 
 
     [self startCountdown];
@@ -446,36 +487,10 @@
 - (void) viewOnlinePorn {
 
     if (self.isCountingdown) return;
-
-    //look for the prize 'buildReadingList' before Proceeding
-
-    ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
-    ThingsTag *viewOnlinePorn = [[things tags] objectWithName:@"viewOnlinePorn"];
-    SBElementArray *todos = [viewOnlinePorn.toDos copy];
-
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"status == %@", [NSAppleEventDescriptor descriptorWithEnumCode:ThingsStatusOpen]];
-
-    NSSortDescriptor *dueDateSD = [NSSortDescriptor sortDescriptorWithKey:@"dueDate" ascending:YES];
-
-    [todos filterUsingPredicate:pred];
-
-    NSArray *sortedResults = [todos sortedArrayUsingDescriptors:@[dueDateSD]];
-
-
-    if ([sortedResults count] == 0) {
-
-        [NSApp activateIgnoringOtherApps:YES];
-        NSRunAlertPanel(@"Prize Requirement",
-                        @"You must have a 'viewOnlinePorn' prize before you can proceed.",
-                        @"Dismiss", nil, nil);
-
-        return;
-    }
-
-    ThingsToDo *viewOnlinePornPrize = [[sortedResults objectAtIndex:0] get];
-    [viewOnlinePornPrize setStatus:ThingsStatusCompleted];
-
-    
+#ifdef RELEASE
+    if (![self consumePrizeWithTag:@"viewOnlinePorn"]) return;
+#endif
+     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
 
     //Porn
@@ -493,11 +508,11 @@
 
     [self openURLsInSafari:[results valueForKey:@"url"]];
     //mark as read
+#ifdef RELEASE
     [results makeObjectsPerformSelector:@selector(read)];
+#endif
 
     [self startCountdown];
 
-    // countdown
-    // prizes
 }
 @end
