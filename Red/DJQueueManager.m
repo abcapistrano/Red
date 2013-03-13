@@ -13,9 +13,8 @@
 #import "Safari.h"
 #import "AFNetworking.h"
 #import "NSArray+ConvenienceMethods.h"
-#import "NSDate+Weekend.h"
 #import "Things.h"
-
+#import "NSDate+MoreDates.h"
 @implementation DJQueueManager
 
 - (id)init
@@ -61,6 +60,22 @@
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
 
 }
+/*
+- (void) awakeFromNib {
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ReadingListItem"];
+    NSPredicate* predicate2 = [NSPredicate predicateWithFormat:@"isRead == NO"];
+    request.predicate = predicate2;
+
+    [[self.managedObjectContext executeFetchRequest:request error:nil] enumerateObjectsUsingBlock:^(ReadingListItem* item, NSUInteger idx, BOOL *stop) {
+
+
+        item.dateAdded = [item.dateAdded dateJustBeforeMidnight];
+        
+    }];
+
+
+}*/
 
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict {
 
@@ -69,6 +84,8 @@
     item.urlString = dict[@"url"];
     item.referrer = dict[@"referrer"];
     item.title = dict[@"title"];
+    item.dateAdded = [[NSDate date] dateJustBeforeMidnight];
+
 
     NSBlockOperation *findDuplicate = [NSBlockOperation blockOperationWithBlock:^{
 
@@ -203,23 +220,68 @@
     ThingsToDo *readArticlesPrize = [[sortedResults objectAtIndex:0] get];
     [readArticlesPrize setStatus:ThingsStatusCompleted];
 
+/*
+ Objective: Get articles from 10 different dates to add variety to your reading experience
+ 
+ */
 
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
-    
-    pred = [NSPredicate predicateWithFormat:@"isRead == NO"];
+    // fetch dates
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReadingListItem" inManagedObjectContext:self.managedObjectContext];
+
+    request.entity = entity;
+    request.propertiesToFetch = @[[entity propertiesByName][@"dateAdded"]];
+    request.returnsDistinctResults = YES;
+    request.resultType = NSDictionaryResultType;
+
+    NSPredicate* predicate2 = [NSPredicate predicateWithFormat:@"isRead == NO"];
+    request.predicate = predicate2;
+
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:YES];
-
-    request.predicate = pred;
     request.sortDescriptors = @[sd];
-    request.fetchLimit = 50;
 
-    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
-    NSArray *subresults = [results sample:10];
-    
-    [self openURLsInSafari:[subresults valueForKey:@"url"]];
+    NSUInteger countOfLinksToShow = 10;
+    request.fetchLimit = countOfLinksToShow;
 
-    //mark as read the items fetched
-    [subresults makeObjectsPerformSelector:@selector(markAsRead)];
+    NSArray *dates = [self.managedObjectContext executeFetchRequest:request error:nil];
+
+    if ([dates count] == countOfLinksToShow) {
+
+        NSMutableArray *itemsToOpen = [NSMutableArray array];
+
+        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded == $date"];
+        NSFetchRequest *request2 = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
+
+        [dates enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(NSDictionary* result, NSUInteger idx, BOOL *stop) {
+
+            NSPredicate *customDatePredicate = [datePredicate predicateWithSubstitutionVariables:@{@"date":result[@"dateAdded"]}];
+            request2.predicate = customDatePredicate;
+            request2.fetchLimit = 10;
+
+            NSArray *results = [self.managedObjectContext executeFetchRequest:request2 error:nil];
+
+            ReadingListItem *randomResult = [[results sample:1] lastObject];
+            [itemsToOpen addObject:randomResult];
+
+
+
+
+
+
+        }];
+
+        [self openURLsInSafari:[itemsToOpen valueForKey:@"url"]];
+        [itemsToOpen makeObjectsPerformSelector:@selector(markAsRead)];
+
+
+
+    } else {
+
+
+        NSRunAlertPanel(@"Highly Unlikely Error", @"It seems that not enough dates are available. Fix that.", @"Dismiss", nil, nil);
+
+    }
+
 
 }
 
@@ -227,17 +289,17 @@
 
     SafariApplication *safari = [SBApplication applicationWithBundleIdentifier:@"com.apple.Safari"];
     [safari activate];
+    
     SafariDocument *doc = [[safari classForScriptingClass:@"document"] new];
-
     [safari.documents addObject:doc];
 
-    SafariWindow *activeWindow = [safari.windows objectAtIndex:0];
+    SafariWindow *window = [safari.windows objectAtIndex:0];
 
     Class tabClass = [safari classForScriptingClass:@"tab"];
     [urls enumerateObjectsUsingBlock:^(NSURL *url, NSUInteger idx, BOOL *stop) {
 
         SafariTab *tab = [tabClass new];
-        [activeWindow.tabs addObject:tab];
+        [window.tabs addObject:tab];
         tab.URL = url.absoluteString;
         
         
@@ -245,7 +307,7 @@
     }];
 
     //close the first tab coz its fake
-    [[activeWindow.tabs objectAtIndex:0] closeSaving:0 savingIn:nil];
+    [[window.tabs objectAtIndex:0] closeSaving:0 savingIn:nil];
 
     
 }

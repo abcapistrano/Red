@@ -7,13 +7,8 @@
 //
 
 #import "ReadingListItem+Extra.h"
-
 @implementation ReadingListItem (Extra)
-- (void) awakeFromInsert {
-    [super awakeFromInsert];
-    self.dateAdded = [NSDate date];
-    
-}
+
 
 + (ReadingListItem *) readingListItemWithDefaultContext {
 

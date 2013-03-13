@@ -11,7 +11,7 @@
 
       var socket;
       var t;
-      var connectCount;
+      var connectCount = 0;
 
       OpenWebSocket();
 
@@ -19,8 +19,14 @@
 
           if ((socket == undefined || socket.readyState != 1) && connectCount < 10) { // readState is not open
               socket = new WebSocket("ws://localhost:49803/service");
-              t = setTimeout("OpenWebSocket()", 1000);
+              t = setTimeout("OpenWebSocket()", 3000);
               connectCount++;
+              socket.onclose = function(evt) {
+
+                  OpenWebSocket();
+
+
+              }
           } else {
               clearTimeout(t);
           }
@@ -63,13 +69,13 @@
         
   
   //respond to middle clicks
-  function respondToMessage(messageEvent) {
-    if (messageEvent.name === 'addReadingListItem') {
-        socket.send(messageEvent.message);
-    }
-  
-  }
-    
+      function respondToMessage(messageEvent) {
+        if (messageEvent.name === 'addReadingListItem') {
+            socket.send(messageEvent.message);
+        }
+      
+      }
+
   </script>
 </head>
 </html>

@@ -48,6 +48,8 @@
 
     [[DJLinkImporter sharedImporter] updateLinkRoll];
 
+    
+
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.demonjelly.Red" in the user's Application Support directory.
