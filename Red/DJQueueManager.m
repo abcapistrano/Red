@@ -496,7 +496,7 @@
     //Porn
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Porn"];
     [request setPredicate:predicate];
-    [request setFetchLimit:5];
+    [request setFetchLimit:3];
 
 
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
