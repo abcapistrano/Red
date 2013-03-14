@@ -262,11 +262,11 @@
 
         if (randomNumber < 9) { //if the number falls between 1-8 we get from the earliestDates to favor such dates
 
-            [datesToShow addObject:[[earliestDates sample:1] lastObject]];
+            [datesToShow addObject:[[earliestDates grab:1] lastObject]];
 
         } else {
 
-            [datesToShow addObject:[[latestDates sample:1] lastObject]];
+            [datesToShow addObject:[[latestDates grab:1] lastObject]];
 
 
         }
