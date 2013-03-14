@@ -272,7 +272,7 @@
         }
 
 
-    } while ([datesToShow count] < countOfLinksToShow);
+    } while ([datesToShow count] != countOfLinksToShow);
    
         NSMutableArray *itemsToOpen = [NSMutableArray array];
 
@@ -298,11 +298,11 @@
 
         }];
 
-        [self openURLsInSafari:[itemsToOpen valueForKey:@"url"]];
+
+    [self openURLsInSafari:[itemsToOpen valueForKey:@"url"]];
 
 #ifdef RELEASE
         [itemsToOpen makeObjectsPerformSelector:@selector(markAsRead)];
-
 #endif
 
 
