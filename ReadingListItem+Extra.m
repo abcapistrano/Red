@@ -7,6 +7,7 @@
 //
 
 #import "ReadingListItem+Extra.h"
+#import "NSDate+MoreDates.h"
 @implementation ReadingListItem (Extra)
 
 
@@ -31,6 +32,15 @@
 
     self.isRead = @(YES);
     self.dateRead = [NSDate date];
+}
+
+- (void) awakeFromInsert {
+
+
+    [super awakeFromInsert];
+
+    self.dateAdded = [[NSDate date] dateJustBeforeMidnight];
+
 }
 
 @end

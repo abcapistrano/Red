@@ -172,7 +172,6 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
 
             ReadingListItem *item = [ReadingListItem readingListItemWithDefaultContext];
             item.title = todo.name;
-            item.dateAdded = [NSDate date];
 
 
             //detect URLs in the note

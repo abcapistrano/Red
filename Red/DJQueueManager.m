@@ -61,6 +61,7 @@
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
 
 }
+
 /*
 - (void) awakeFromNib {
 
@@ -68,14 +69,18 @@
     NSPredicate* predicate2 = [NSPredicate predicateWithFormat:@"isRead == NO"];
     request.predicate = predicate2;
 
+    MTRandom *rand = [[MTRandom alloc] init];
+    
+
     [[self.managedObjectContext executeFetchRequest:request error:nil] enumerateObjectsUsingBlock:^(ReadingListItem* item, NSUInteger idx, BOOL *stop) {
-
-        if ([item url] == nil) {
-            NSLog(@"%@", item.title);
-        }
-
-        
+        NSInteger num = -1 * [rand randomUInt32From:1 to:30];
+        item.dateAdded = [[[NSDate date] dateByOffsettingDays:num] dateJustBeforeMidnight];
+        NSLog(@"%lu",idx);
     }];
+
+    [[NSApp delegate] saveAction:self];
+
+
 
 
 }*/
@@ -87,7 +92,6 @@
     item.urlString = dict[@"url"];
     item.referrer = dict[@"referrer"];
     item.title = dict[@"title"];
-    item.dateAdded = [[NSDate date] dateJustBeforeMidnight];
 
 
     NSBlockOperation *findDuplicate = [NSBlockOperation blockOperationWithBlock:^{
@@ -227,6 +231,7 @@
 
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:YES];
     request.sortDescriptors = @[sd];
+    request.includesPendingChanges = YES;
 
     //request.fetchLimit = countOfLinksToShow;
 
@@ -279,7 +284,7 @@
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded == $date"];
         NSFetchRequest *request2 = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
 
-        [datesToShow enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(NSDate* date, NSUInteger idx, BOOL *stop) {
+        [datesToShow enumerateObjectsWithOptions:0 usingBlock:^(NSDate* date, NSUInteger idx, BOOL *stop) {
 
             NSPredicate *customDatePredicate = [datePredicate predicateWithSubstitutionVariables:@{@"date":date}];
             request2.predicate = customDatePredicate;
@@ -295,8 +300,8 @@
 
 
 
-
         }];
+
 
 
     [self openURLsInSafari:[itemsToOpen valueForKey:@"url"]];
