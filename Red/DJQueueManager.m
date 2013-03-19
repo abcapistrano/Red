@@ -350,6 +350,8 @@
 
 - (BOOL) consumePrizeWithTag:(NSString *) tag {
 
+    
+
 
     ThingsApplication *things = [SBApplication applicationWithBundleIdentifier:@"com.culturedcode.things"];
     ThingsTag *prizeTag = [[things tags] objectWithName:tag];
@@ -376,9 +378,24 @@
         return NO;
     } else {
 
-        ThingsToDo *prize = [[sortedResults objectAtIndex:0] get];
-        [prize setStatus:ThingsStatusCompleted];
-        return YES;
+        NSInteger result = NSRunAlertPanel(@"Prize Requirement",
+                        [NSString stringWithFormat:@"Are you sure that you want to use a '%@' prize?", tag],
+                        @"Go Ahead",
+                        @"Dismiss",
+                        nil);
+
+        
+        if (result == NSAlertDefaultReturn) {
+            ThingsToDo *prize = [[sortedResults objectAtIndex:0] get];
+            [prize setStatus:ThingsStatusCompleted];
+            return YES;
+        } else {
+            
+            return NO;
+            
+        }
+
+        
         
     }
 
