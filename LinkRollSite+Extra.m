@@ -18,7 +18,7 @@
 - (void) awakeFromInsert {
 
     [super awakeFromInsert];
-    self.lastDateAccessed = [NSDate distantPast];
+    self.lastDateAccessed = [NSDate date];
 }
 
 - (void) read {
