@@ -39,8 +39,8 @@
 
     [super awakeFromInsert];
 
-    self.dateAdded = [[NSDate date] dateJustBeforeMidnight];
-
+   // self.dateAdded = [[NSDate date] dateJustBeforeMidnight];
+    self.dateAdded = [NSDate date];
 }
 
 @end

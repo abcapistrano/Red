@@ -62,28 +62,39 @@
 
 }
 
-/*
-- (void) awakeFromNib {
 
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ReadingListItem"];
-    NSPredicate* predicate2 = [NSPredicate predicateWithFormat:@"isRead == NO"];
-    request.predicate = predicate2;
-
-    MTRandom *rand = [[MTRandom alloc] init];
-    
-
-    [[self.managedObjectContext executeFetchRequest:request error:nil] enumerateObjectsUsingBlock:^(ReadingListItem* item, NSUInteger idx, BOOL *stop) {
-        NSInteger num = -1 * [rand randomUInt32From:1 to:30];
-        item.dateAdded = [[[NSDate date] dateByOffsettingDays:num] dateJustBeforeMidnight];
-        NSLog(@"%lu",idx);
-    }];
-
-    [[NSApp delegate] saveAction:self];
-
-
-
-
-}*/
+//- (void) awakeFromNib {
+//
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"ReadingListItem"];
+//    NSPredicate* predicate2 = [NSPredicate predicateWithFormat:@"isRead == NO"];
+//    request.predicate = predicate2;
+//
+//    MTRandom *rand = [[MTRandom alloc] init];
+//
+//    NSDateComponents *dc = [NSDateComponents new];
+//    dc.month = 1; 
+//    dc.day = 1;
+//    dc.year = 2013;
+//    dc.hour = 0;
+//    dc.minute = 0;
+//    dc.second = 0;
+//    dc.calendar = [NSCalendar currentCalendar];
+//
+//    NSTimeInterval startTimeInterval = [dc.date timeIntervalSinceReferenceDate];
+//    NSTimeInterval max = 80 * 24 * 60 * 60; // 90 days, 24 hours, 60 minutes, 60 seconds
+//
+//    [[self.managedObjectContext executeFetchRequest:request error:nil] enumerateObjectsUsingBlock:^(ReadingListItem* item, NSUInteger idx, BOOL *stop) {
+//        NSTimeInterval randomInterval = (NSTimeInterval)[rand randomUInt32From:0 to:max] + startTimeInterval;
+//        item.dateAdded = [NSDate dateWithTimeIntervalSinceReferenceDate:randomInterval];
+//        NSLog(@"%lu %@",idx, item.dateAdded);
+//    }];
+//
+//    [[NSApp delegate] saveAction:self];
+//
+//
+//
+//
+//}
 
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict {
 
@@ -235,7 +246,11 @@
 
     //request.fetchLimit = countOfLinksToShow;
 
-    NSArray *dates = [[self.managedObjectContext executeFetchRequest:request error:nil] valueForKey:@"dateAdded"];
+    NSArray *dates = [[self.managedObjectContext executeFetchRequest:request error:nil] valueForKeyPath:@"dateAdded.dateJustBeforeMidnight"];
+    NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:dates];
+    dates = [set array];
+
+    
 
     NSUInteger countOfLinksToShow = 10;
     if ([dates count] < countOfLinksToShow) {
@@ -281,16 +296,22 @@
    
         NSMutableArray *itemsToOpen = [NSMutableArray array];
 
-        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded == $date"];
+        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded >= $startDate AND dateAdded <= $endDate"];
         NSFetchRequest *request2 = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
 
-        [datesToShow enumerateObjectsWithOptions:0 usingBlock:^(NSDate* date, NSUInteger idx, BOOL *stop) {
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateStyle:NSDateFormatterMediumStyle];
 
-            NSPredicate *customDatePredicate = [datePredicate predicateWithSubstitutionVariables:@{@"date":date}];
+        [datesToShow enumerateObjectsWithOptions:0 usingBlock:^(NSDate* midnightDate, NSUInteger idx, BOOL *stop) {
+
+            NSPredicate *customDatePredicate = [datePredicate predicateWithSubstitutionVariables:@{@"startDate":midnightDate.dateAtDawn, @"endDate":midnightDate}];
             request2.predicate = customDatePredicate;
             request2.fetchLimit = 10;
 
             NSArray *results = [self.managedObjectContext executeFetchRequest:request2 error:nil];
+
+ 
+            NSLog(@"%@ %lu", [df stringFromDate:midnightDate], results.count);
 
             ReadingListItem *randomResult = [[results sample:1] lastObject];
             [itemsToOpen addObject:randomResult];
