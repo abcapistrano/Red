@@ -310,9 +310,6 @@
 
             NSArray *results = [self.managedObjectContext executeFetchRequest:request2 error:nil];
 
- 
-            NSLog(@"%@ %lu", [df stringFromDate:midnightDate], results.count);
-
             ReadingListItem *randomResult = [[results sample:1] lastObject];
             [itemsToOpen addObject:randomResult];
 
