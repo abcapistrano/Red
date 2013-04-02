@@ -231,6 +231,7 @@
 		FD8B7DFB16DA344D001DA5E7 /* DJReadingListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJReadingListController.h; sourceTree = "<group>"; };
 		FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJReadingListController.m; sourceTree = "<group>"; };
 		FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJReadingListController.xib; sourceTree = "<group>"; };
+		FD9543AD170A9157007F2F01 /* YACYAMLFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YACYAMLFramework.framework; path = /Library/Frameworks/YACYAMLFramework.framework; sourceTree = "<absolute>"; };
 		FDA8446A16DAE3E400E94A89 /* Icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Icon.iconset; sourceTree = "<group>"; };
 		FDA8446C16DB6E4A00E94A89 /* Things.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Things.h; path = ../Things.h; sourceTree = "<group>"; };
 		FDC4653316F033C50028F002 /* NSDate+MoreDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MoreDates.h"; sourceTree = "<group>"; };
@@ -430,6 +431,7 @@
 		FD899E0516D3630000E0793A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD9543AD170A9157007F2F01 /* YACYAMLFramework.framework */,
 				FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */,
 				FD83FACA16D6521D00071F18 /* Security.framework */,
 				FD899E0616D3630000E0793A /* Cocoa.framework */,

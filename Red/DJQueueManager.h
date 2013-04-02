@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DJReadingListQueue.h"
+
 @interface DJQueueManager : NSObject <DJReadingListQueue, NSUserNotificationCenterDelegate> {
 
     NSXPCConnection *_connection;
@@ -19,6 +20,7 @@
 @property (readonly) NSManagedObjectContext *managedObjectContext;
 @property (strong) NSOperationQueue *queue;
 @property (assign) BOOL isCountingdown;
+@property (readonly, nonatomic, strong) NSDictionary * constants;
 - (void) addReadingListItemWithInfoDictionary: (NSDictionary *) dict;
 - (void) readItems;
 - (void) buildReadingList;

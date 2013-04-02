@@ -528,7 +528,7 @@
 
     if (self.isCountingdown) return;
 #ifdef RELEASE
-    if (![self consumePrizeWithTag:@"viewOnlinePorn"]) return;
+    if (![self consumePrizeWithTag:@"viewOnlineP"]) return;
 #endif
      
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
