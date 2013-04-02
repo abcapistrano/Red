@@ -12,6 +12,8 @@
 #import "ReadingListItem+Extra.h"
 #import <ScriptingBridge/ScriptingBridge.h>
 #import "Things.h"
+#import "NSString+MD5.h"
+
 NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookmarks.plist";
 
 @implementation DJLinkImporter
@@ -73,13 +75,18 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
     } else if ([type isEqualToString:@"WebBookmarkTypeLeaf"]) {
 
         NSString *parentTitle = [parent valueForKey:@"Title"];
+
         if ([self.linkRollListNames containsObject:parentTitle]) {
 
+            // obtain ID so that whenever the grouping of the bookmark and url changes, we recreate the bookmark
+            
+            NSString *id = [[NSString stringWithFormat:@"%@-%@", parentTitle, [dict valueForKey:@"URLString"]] md5Digest];
 
             NSDictionary *bookmark = @{
                                        @"title": [dict valueForKeyPath:@"URIDictionary.title"],
                                        @"group": parentTitle,
-                                       @"urlString": [dict valueForKey:@"URLString"]
+                                       @"urlString": [dict valueForKey:@"URLString"],
+                                       @"id":id
                                        };
             [self.linkRoll addObject:bookmark];
 
@@ -116,18 +123,19 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
     NSArray *sites = [self.managedObjectContext executeFetchRequest:request error:nil];
 
     // Look for what's new; compare what was added to the bookmarks
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT(urlString IN %@)", [sites valueForKey:@"urlString"]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"NOT(id IN %@)", [sites valueForKey:@"id"]];
     NSArray *newLinkRollSites = [self.linkRoll filteredArrayUsingPredicate:predicate];
 
     [newLinkRollSites enumerateObjectsUsingBlock:^(NSDictionary* siteInfo, NSUInteger idx, BOOL *stop) {
         LinkRollSite *site = [LinkRollSite linkRollSiteWithDefaultContext];
         [site setValuesForKeysWithDictionary:siteInfo];
+        NSLog(@"%@ was added", siteInfo[@"title"]);
 
         
     }];
     // Look for what's new; compare what was deleted from the bookmarks
 
-    predicate = [NSPredicate predicateWithFormat:@"NOT(urlString IN %@)", [self.linkRoll valueForKey:@"urlString"]];
+    predicate = [NSPredicate predicateWithFormat:@"NOT(id IN %@)", [self.linkRoll valueForKey:@"id"]];
     NSArray *deletedLinkRollSites = [sites filteredArrayUsingPredicate:predicate];
 
     [deletedLinkRollSites enumerateObjectsUsingBlock:^(LinkRollSite *site, NSUInteger idx, BOOL *stop) {

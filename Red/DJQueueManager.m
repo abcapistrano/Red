@@ -12,10 +12,12 @@
 #import <ScriptingBridge/ScriptingBridge.h>
 #import "Safari.h"
 #import "AFNetworking.h"
-#import "NSArray+ConvenienceMethods.h"
 #import "Things.h"
 #import "NSDate+MoreDates.h"
 #import "MTRandom.h"
+
+#import <YAMLFramework/YAMLFramework.h>
+
 @implementation DJQueueManager
 
 - (id)init
@@ -43,6 +45,8 @@
             [[weakConnection remoteObjectProxy] wake];
 
         };
+        
+        _constants = [YACYAMLKeyedUnarchiver unarchiveObjectWithFile:@"/Users/earltagra/Library/Application Support/com.demonjelly.ThingsCleaner/Constants.yaml"];
 
     }
     return self;
@@ -252,7 +256,7 @@
 
     
 
-    NSUInteger countOfLinksToShow = 10;
+    NSUInteger countOfLinksToShow = [self.constants[@"RED_COUNT_OF_LINKS_TO_SHOW"] integerValue];
     if ([dates count] < countOfLinksToShow) {
 
         NSRunAlertPanel(@"Highly Unlikely Error", @"It seems that not enough dates are available. Fix that.", @"Dismiss", nil, nil);
@@ -432,10 +436,16 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
     NSMutableArray *sites = [NSMutableArray array];
 
+    NSInteger sitesToShow = [self.constants[@"RED_COUNT_OF_LINKROLL_SITES_TO_SHOW"] integerValue];
+
     //Important
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
     [request setPredicate:predicate];
-    [request setFetchLimit:0];
+
+    NSInteger count = 3;
+    sitesToShow -= count;
+    
+    [request setFetchLimit:count];
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
 
     //News
@@ -444,6 +454,10 @@
 
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
     [request setSortDescriptors:@[sd]];
+
+    count = 3;
+    sitesToShow -= count;
+
 
     [request setFetchLimit:3];
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
@@ -457,7 +471,7 @@
      NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];
      [request setSortDescriptors:@[sd]];*/
 
-    [request setFetchLimit:5];
+    [request setFetchLimit:sitesToShow];
 
     [sites addObjectsFromArray:[self.managedObjectContext executeFetchRequest:request error:nil]];
     //open
@@ -481,7 +495,7 @@
 
     self.isCountingdown = YES;
 
-    remainingTicks = 30 * 60; //30 minute
+    remainingTicks = [self.constants[@"RED_COUNTDOWN_MINUTES"] integerValue] * 60; //30 minute
 
     _countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                        target:self
@@ -536,7 +550,9 @@
     //Porn
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Porn"];
     [request setPredicate:predicate];
-    [request setFetchLimit:3];
+
+    NSInteger countOfSitesToShow = [self.constants[@"RED_PORN_SITES_VIEW_COUNT"] integerValue];
+    [request setFetchLimit:countOfSitesToShow];
 
 
     NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"lastDateAccessed" ascending:YES];

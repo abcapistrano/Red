@@ -9,7 +9,6 @@
 #import "DJAppDelegate.h"
 #import "DJLinkImporter.h"
 #import "DJQueueManager.h"
-#import "NSArray+ConvenienceMethods.h"
 #import "DJReadingListController.h"
 
 

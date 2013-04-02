@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FD12901516E85D7F007E9AD3 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FD12901416E85D7F007E9AD3 /* GCDAsyncSocket.m */; };
+		FD1D8ED6170AC0B100A9C223 /* YAMLFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD1D8ED5170AC0B100A9C223 /* YAMLFramework.framework */; };
 		FD2207B416E73A5C00595632 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD83FACA16D6521D00071F18 /* Security.framework */; };
 		FD2207B716E7463800595632 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD899E0616D3630000E0793A /* Cocoa.framework */; };
 		FD2207BA16E74A3600595632 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2207B816E74A1600595632 /* SystemConfiguration.framework */; };
@@ -18,7 +19,9 @@
 		FD28733D16D89406009E8788 /* LinkRollSite+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */; };
 		FD28734016D8A77C009E8788 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */; };
 		FD28734316D8AECC009E8788 /* ReadingListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28734216D8AECC009E8788 /* ReadingListItem.m */; };
-		FD28734616D8B254009E8788 /* NSArray+ConvenienceMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */; };
+		FD5918B0170B00C300803AF1 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5918AF170B00C300803AF1 /* NSString+MD5.m */; };
+		FD5918B5170B00CD00803AF1 /* MTRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5918B2170B00CD00803AF1 /* MTRandom.m */; };
+		FD5918B6170B00CD00803AF1 /* NSDate+MoreDates.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5918B4170B00CD00803AF1 /* NSDate+MoreDates.m */; };
 		FD644ECD16D86C2D000BA156 /* DJLinkImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */; };
 		FD83FABB16D6511400071F18 /* About.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD83FAAA16D6511300071F18 /* About.txt */; };
 		FD83FAC316D6511400071F18 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = FD83FABA16D6511400071F18 /* README.txt */; };
@@ -43,8 +46,6 @@
 		FD8B7DFE16DA344E001DA5E7 /* DJReadingListController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */; };
 		FD8B7DFF16DA344E001DA5E7 /* DJReadingListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */; };
 		FDA8446B16DAE3E400E94A89 /* Icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = FDA8446A16DAE3E400E94A89 /* Icon.iconset */; };
-		FDC4653516F033C50028F002 /* NSDate+MoreDates.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC4653416F033C50028F002 /* NSDate+MoreDates.m */; };
-		FDC4653816F08ACC0028F002 /* MTRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC4653716F08ACC0028F002 /* MTRandom.m */; };
 		FDCB119316E78B34006022B9 /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BC16E7868A00595632 /* index.html */; };
 		FDCB119416E78B36006022B9 /* WebSocketTest.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BD16E7868A00595632 /* WebSocketTest.js */; };
 		FDCB119516E78B38006022B9 /* WebSocketTest2.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD2207BE16E7868A00595632 /* WebSocketTest2.js */; };
@@ -119,6 +120,7 @@
 /* Begin PBXFileReference section */
 		FD12901316E85D7F007E9AD3 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		FD12901416E85D7F007E9AD3 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		FD1D8ED5170AC0B100A9C223 /* YAMLFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAMLFramework.framework; path = ../../../../../Library/Frameworks/YAMLFramework.framework; sourceTree = "<group>"; };
 		FD2207B816E74A1600595632 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FD2207BC16E7868A00595632 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		FD2207BD16E7868A00595632 /* WebSocketTest.js */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = WebSocketTest.js; sourceTree = "<group>"; };
@@ -131,8 +133,14 @@
 		FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		FD28734116D8AECC009E8788 /* ReadingListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingListItem.h; sourceTree = "<group>"; };
 		FD28734216D8AECC009E8788 /* ReadingListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingListItem.m; sourceTree = "<group>"; };
-		FD28734416D8B253009E8788 /* NSArray+ConvenienceMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ConvenienceMethods.h"; sourceTree = "<group>"; };
-		FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ConvenienceMethods.m"; sourceTree = "<group>"; };
+		FD45AA27170AFAF800B3ECD5 /* Red 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Red 2.xcdatamodel"; sourceTree = "<group>"; };
+		FD5918AD170AFF4C00803AF1 /* Red 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Red 2.xcdatamodel"; sourceTree = "<group>"; };
+		FD5918AE170B00C300803AF1 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "../../Headers/NSString+MD5.h"; sourceTree = "<group>"; };
+		FD5918AF170B00C300803AF1 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "../../Headers/NSString+MD5.m"; sourceTree = "<group>"; };
+		FD5918B1170B00CD00803AF1 /* MTRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTRandom.h; path = ../../Headers/MTRandom.h; sourceTree = "<group>"; };
+		FD5918B2170B00CD00803AF1 /* MTRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTRandom.m; path = ../../Headers/MTRandom.m; sourceTree = "<group>"; };
+		FD5918B3170B00CD00803AF1 /* NSDate+MoreDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MoreDates.h"; path = "../../Headers/NSDate+MoreDates.h"; sourceTree = "<group>"; };
+		FD5918B4170B00CD00803AF1 /* NSDate+MoreDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MoreDates.m"; path = "../../Headers/NSDate+MoreDates.m"; sourceTree = "<group>"; };
 		FD644ECB16D86C2D000BA156 /* DJLinkImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJLinkImporter.h; sourceTree = "<group>"; };
 		FD644ECC16D86C2D000BA156 /* DJLinkImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJLinkImporter.m; sourceTree = "<group>"; };
 		FD83FA7516D650F200071F18 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDData.h; sourceTree = "<group>"; };
@@ -231,13 +239,8 @@
 		FD8B7DFB16DA344D001DA5E7 /* DJReadingListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJReadingListController.h; sourceTree = "<group>"; };
 		FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJReadingListController.m; sourceTree = "<group>"; };
 		FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DJReadingListController.xib; sourceTree = "<group>"; };
-		FD9543AD170A9157007F2F01 /* YACYAMLFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YACYAMLFramework.framework; path = /Library/Frameworks/YACYAMLFramework.framework; sourceTree = "<absolute>"; };
 		FDA8446A16DAE3E400E94A89 /* Icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Icon.iconset; sourceTree = "<group>"; };
 		FDA8446C16DB6E4A00E94A89 /* Things.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Things.h; path = ../Things.h; sourceTree = "<group>"; };
-		FDC4653316F033C50028F002 /* NSDate+MoreDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MoreDates.h"; sourceTree = "<group>"; };
-		FDC4653416F033C50028F002 /* NSDate+MoreDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MoreDates.m"; sourceTree = "<group>"; };
-		FDC4653616F08ACC0028F002 /* MTRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRandom.h; sourceTree = "<group>"; };
-		FDC4653716F08ACC0028F002 /* MTRandom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRandom.m; sourceTree = "<group>"; };
 		FDCFEEF616D6FECE00EC3BC5 /* ReadingListItem+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ReadingListItem+Extra.h"; path = "../ReadingListItem+Extra.h"; sourceTree = "<group>"; };
 		FDCFEEF716D6FECE00EC3BC5 /* ReadingListItem+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ReadingListItem+Extra.m"; path = "../ReadingListItem+Extra.m"; sourceTree = "<group>"; };
 		FDE8C44416E71382009DB2C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD28734016D8A77C009E8788 /* ScriptingBridge.framework in Frameworks */,
+				FD1D8ED6170AC0B100A9C223 /* YAMLFramework.framework in Frameworks */,
 				FD2207BA16E74A3600595632 /* SystemConfiguration.framework in Frameworks */,
 				FD899E0716D3630000E0793A /* Cocoa.framework in Frameworks */,
 			);
@@ -411,6 +415,7 @@
 		FD899DFA16D3630000E0793A = {
 			isa = PBXGroup;
 			children = (
+				FD1D8ED5170AC0B100A9C223 /* YAMLFramework.framework */,
 				FD2207B816E74A1600595632 /* SystemConfiguration.framework */,
 				FD899E0C16D3630000E0793A /* Red */,
 				FDE8C48816E71F62009DB2C2 /* RedWebServer */,
@@ -431,7 +436,6 @@
 		FD899E0516D3630000E0793A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FD9543AD170A9157007F2F01 /* YACYAMLFramework.framework */,
 				FD28733F16D8A77C009E8788 /* ScriptingBridge.framework */,
 				FD83FACA16D6521D00071F18 /* Security.framework */,
 				FD899E0616D3630000E0793A /* Cocoa.framework */,
@@ -454,8 +458,6 @@
 		FD899E0C16D3630000E0793A /* Red */ = {
 			isa = PBXGroup;
 			children = (
-				FDC4653616F08ACC0028F002 /* MTRandom.h */,
-				FDC4653716F08ACC0028F002 /* MTRandom.m */,
 				FD28733C16D89406009E8788 /* LinkRollSite+Extra.m */,
 				FD8B7DDE16DA0B48001DA5E7 /* AFNetworking */,
 				FD3ACA9616E4AFD40015988A /* Models */,
@@ -472,10 +474,12 @@
 				FD8B7DFC16DA344D001DA5E7 /* DJReadingListController.m */,
 				FD8B7DFD16DA344E001DA5E7 /* DJReadingListController.xib */,
 				FD28733E16D8A697009E8788 /* Safari.h */,
-				FD28734416D8B253009E8788 /* NSArray+ConvenienceMethods.h */,
-				FD28734516D8B253009E8788 /* NSArray+ConvenienceMethods.m */,
-				FDC4653316F033C50028F002 /* NSDate+MoreDates.h */,
-				FDC4653416F033C50028F002 /* NSDate+MoreDates.m */,
+				FD5918AE170B00C300803AF1 /* NSString+MD5.h */,
+				FD5918AF170B00C300803AF1 /* NSString+MD5.m */,
+				FD5918B1170B00CD00803AF1 /* MTRandom.h */,
+				FD5918B2170B00CD00803AF1 /* MTRandom.m */,
+				FD5918B3170B00CD00803AF1 /* NSDate+MoreDates.h */,
+				FD5918B4170B00CD00803AF1 /* NSDate+MoreDates.m */,
 				FD899E0D16D3630000E0793A /* Supporting Files */,
 			);
 			path = Red;
@@ -678,7 +682,6 @@
 				FD28733A16D891A7009E8788 /* LinkRollSite.m in Sources */,
 				FD28733D16D89406009E8788 /* LinkRollSite+Extra.m in Sources */,
 				FD28734316D8AECC009E8788 /* ReadingListItem.m in Sources */,
-				FD28734616D8B254009E8788 /* NSArray+ConvenienceMethods.m in Sources */,
 				FD8B7DF216DA0B48001DA5E7 /* AFHTTPClient.m in Sources */,
 				FD8B7DF316DA0B48001DA5E7 /* AFHTTPRequestOperation.m in Sources */,
 				FD8B7DF416DA0B48001DA5E7 /* AFImageRequestOperation.m in Sources */,
@@ -689,8 +692,9 @@
 				FD8B7DF916DA0B48001DA5E7 /* AFXMLRequestOperation.m in Sources */,
 				FD8B7DFA16DA0B48001DA5E7 /* UIImageView+AFNetworking.m in Sources */,
 				FD8B7DFE16DA344E001DA5E7 /* DJReadingListController.m in Sources */,
-				FDC4653516F033C50028F002 /* NSDate+MoreDates.m in Sources */,
-				FDC4653816F08ACC0028F002 /* MTRandom.m in Sources */,
+				FD5918B0170B00C300803AF1 /* NSString+MD5.m in Sources */,
+				FD5918B5170B00CD00803AF1 /* MTRandom.m in Sources */,
+				FD5918B6170B00CD00803AF1 /* NSDate+MoreDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,6 +844,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Red/Red-Prefix.pch";
 				INFOPLIST_FILE = "Red/Red-Info.plist";
@@ -854,6 +859,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Red/Red-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
@@ -941,7 +947,9 @@
 		FD899E1E16D3630000E0793A /* Red.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FD45AA27170AFAF800B3ECD5 /* Red 2.xcdatamodel */,
 				FD899E1F16D3630000E0793A /* Red.xcdatamodel */,
+				FD5918AD170AFF4C00803AF1 /* Red 2.xcdatamodel */,
 			);
 			currentVersion = FD899E1F16D3630000E0793A /* Red.xcdatamodel */;
 			path = Red.xcdatamodeld;

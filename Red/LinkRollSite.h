@@ -16,5 +16,5 @@
 @property (nonatomic, retain) NSDate * lastDateAccessed;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * urlString;
-
+@property (nonatomic, retain) NSString * id;
 @end

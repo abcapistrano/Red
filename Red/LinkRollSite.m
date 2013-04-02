@@ -15,5 +15,6 @@
 @dynamic lastDateAccessed;
 @dynamic title;
 @dynamic urlString;
+@dynamic id;
 
 @end
