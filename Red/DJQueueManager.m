@@ -226,27 +226,33 @@
  
  */
 
-    // fetch dates
 
+    NSMutableArray *itemsToOpen = [NSMutableArray array];
 
+    // fetch the prioritized items
 
-
-
-    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReadingListItem" inManagedObjectContext:self.managedObjectContext];
-
     request.entity = entity;
+    request.predicate = [NSPredicate predicateWithFormat:@"isRead == NO AND isPrioritized == YES"];
+    request.fetchLimit = [self.constants[@"priorityItemsViewCount"] integerValue];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:YES]];
+    request.includesPendingChanges = YES;
+
+
+    NSArray *results =[self.managedObjectContext executeFetchRequest:request error:nil];
+
+    [itemsToOpen addObjectsFromArray:results];
+
+
+
+    // fetch dates
+
     request.propertiesToFetch = @[[entity propertiesByName][@"dateAdded"]];
     request.returnsDistinctResults = YES;
     request.resultType = NSDictionaryResultType;
-
-    NSPredicate* predicate2 = [NSPredicate predicateWithFormat:@"isRead == NO"];
-    request.predicate = predicate2;
-
-    NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"dateAdded" ascending:YES];
-    request.sortDescriptors = @[sd];
-    request.includesPendingChanges = YES;
+    request.predicate = [NSPredicate predicateWithFormat:@"isRead == NO"];
+    request.fetchLimit = 0;
 
     //request.fetchLimit = countOfLinksToShow;
 
@@ -254,10 +260,10 @@
     NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:dates];
     dates = [set array];
 
-    
 
-    NSUInteger countOfLinksToShow = [self.constants[@"RED_COUNT_OF_LINKS_TO_SHOW"] integerValue];
-    if ([dates count] < countOfLinksToShow) {
+
+    NSUInteger countOfItemsToShowWithNoPriority = [self.constants[@"readingListViewCount"] integerValue] - results.count;
+    if ([dates count] < countOfItemsToShowWithNoPriority) {
 
         NSRunAlertPanel(@"Highly Unlikely Error", @"It seems that not enough dates are available. Fix that.", @"Dismiss", nil, nil);
         return;
@@ -275,7 +281,7 @@
     NSMutableArray *latestDates = [[dates subarrayWithRange:bottomhalf] mutableCopy];
     
 
-    NSMutableArray *datesToShow = [NSMutableArray arrayWithCapacity:countOfLinksToShow];
+    NSMutableArray *datesToShow = [NSMutableArray arrayWithCapacity:countOfItemsToShowWithNoPriority];
 
     
     MTRandom *random = [MTRandom new];
@@ -296,9 +302,8 @@
         }
 
 
-    } while ([datesToShow count] != countOfLinksToShow);
+    } while ([datesToShow count] != countOfItemsToShowWithNoPriority);
    
-        NSMutableArray *itemsToOpen = [NSMutableArray array];
 
         NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded >= $startDate AND dateAdded <= $endDate"];
         NSFetchRequest *request2 = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
@@ -436,7 +441,7 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"LinkRollSite"];
     NSMutableArray *sites = [NSMutableArray array];
 
-    NSInteger sitesToShow = [self.constants[@"RED_COUNT_OF_LINKROLL_SITES_TO_SHOW"] integerValue];
+    NSInteger sitesToShow = [self.constants[@"linkRollViewCount"] integerValue];
 
     //Important
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Important"];
@@ -495,7 +500,7 @@
 
     self.isCountingdown = YES;
 
-    remainingTicks = [self.constants[@"RED_COUNTDOWN_MINUTES"] integerValue] * 60; //30 minute
+    remainingTicks = [self.constants[@"countdownMinutes"] integerValue] * 60; //30 minute
 
     _countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                        target:self
@@ -551,7 +556,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"group == %@", @"Porn"];
     [request setPredicate:predicate];
 
-    NSInteger countOfSitesToShow = [self.constants[@"RED_PORN_SITES_VIEW_COUNT"] integerValue];
+    NSInteger countOfSitesToShow = [self.constants[@"pornSitesViewCount"] integerValue];
     [request setFetchLimit:countOfSitesToShow];
 
 

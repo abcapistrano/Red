@@ -13,6 +13,7 @@
 #import <ScriptingBridge/ScriptingBridge.h>
 #import "Things.h"
 #import "NSString+MD5.h"
+#import <YAMLFramework/YAMLFramework.h>
 
 NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookmarks.plist";
 
@@ -38,6 +39,8 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
         _linkRoll = [NSMutableArray array];
   //      _linkRollListNames = @[@"General", @"Important", @"News", @"Occasional"];
         _readingList = [NSMutableArray array];
+        _constants = [YACYAMLKeyedUnarchiver unarchiveObjectWithFile:@"/Users/earltagra/Library/Application Support/com.demonjelly.ThingsCleaner/Constants.yaml"];
+
 
     }
     return self;
@@ -169,10 +172,9 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
     ThingsArea *redQueue =[things.areas objectWithName:@"Red Queue"];
 
     SBElementArray *todos = redQueue.toDos;
-
-    
     NSDataDetector *linkDetector = [NSDataDetector dataDetectorWithTypes:(NSTextCheckingTypes)NSTextCheckingTypeLink error:nil];
 
+  
 
     [todos enumerateObjectsUsingBlock:^(ThingsToDo* todo, NSUInteger idx, BOOL *stop) {
 
@@ -181,6 +183,16 @@ NSString * const SAFARI_BOOKMARKS_PATH = @"/Users/earltagra/Library/Safari/Bookm
             ReadingListItem *item = [ReadingListItem readingListItemWithDefaultContext];
             item.title = todo.name;
 
+            
+             NSPredicate *containsPrefix = [NSPredicate predicateWithFormat:@"SUBQUERY(self, $prefix, %@ BEGINSWITH[cd] $prefix).@count > 0", item.title ];
+
+            if ([containsPrefix evaluateWithObject:self.constants[@"priorityPrefixes"]]) {
+
+                item.isPrioritized = @YES;
+
+
+            }
+            NSLog(@"%@ %@", item.title, item.isPrioritized);
 
             //detect URLs in the note
 

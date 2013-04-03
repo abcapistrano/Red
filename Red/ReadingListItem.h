@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * urlString;
 @property (nonatomic, retain) NSDate * dateRead;
+@property (nonatomic, retain) NSNumber * isPrioritized;
 
 @end

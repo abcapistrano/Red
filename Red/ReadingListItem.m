@@ -17,5 +17,6 @@
 @dynamic title;
 @dynamic urlString;
 @dynamic dateRead;
+@dynamic isPrioritized;
 
 @end

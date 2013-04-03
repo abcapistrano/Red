@@ -14,7 +14,7 @@
 @property (strong) NSMutableArray *readingList;
 @property (strong) NSArray *linkRollListNames;
 @property (readonly) NSManagedObjectContext *managedObjectContext;
-
+@property (strong, readonly, nonatomic) NSDictionary * constants;
 + (id)sharedImporter;
 - (void) reload;
 - (void) updateLinkRoll;
