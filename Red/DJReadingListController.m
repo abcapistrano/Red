@@ -51,4 +51,17 @@
 }
 
 
+- (void) keyDown:(NSEvent *)theEvent {
+
+
+    if ([theEvent keyCode] == NSDeleteCharacter) {
+
+        NSLog(@"delete");
+    } else {
+        [super keyDown:theEvent];
+    }
+
+}
+
+
 @end

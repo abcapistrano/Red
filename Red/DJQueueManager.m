@@ -60,9 +60,9 @@
 
 - (void) websocketConnected {
 
-    NSUserNotification *note = [NSUserNotification new];
-    note.title = @"Connected to Red Server";
-    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
+//    NSUserNotification *note = [NSUserNotification new];
+//    note.title = @"Connected to Red Server";
+//    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:note];
 
 }
 
@@ -305,7 +305,7 @@
     } while ([datesToShow count] != countOfItemsToShowWithNoPriority);
    
 
-        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded >= $startDate AND dateAdded <= $endDate"];
+        NSPredicate *datePredicate = [NSPredicate predicateWithFormat:@"dateAdded >= $startDate AND dateAdded <= $endDate AND isRead == NO"];
         NSFetchRequest *request2 = [[NSFetchRequest alloc] initWithEntityName:@"ReadingListItem"];
 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
